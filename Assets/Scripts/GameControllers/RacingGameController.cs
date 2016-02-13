@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -9,12 +10,16 @@ public class RacingGameController : MonoBehaviour {
     [SerializeField]
     private RhythmButtonSpawner spawner = null;
 
+    [SerializeField]
+    private GameObject pausePanel = null;
+
     private float maxCountDown = 3.0f;
     private float countDown = 0.0f;
 
     public List<RhythmGuiMovement> rhythmButtons = new List<RhythmGuiMovement>();
 
     void Awake() {
+        Time.timeScale = 1.0f;
         MakeInstance();
     }
 
@@ -25,6 +30,10 @@ public class RacingGameController : MonoBehaviour {
             countDown = maxCountDown * Random.Range(0.75f, 1.25f);
             spawner.ReleaseRhythmButton();
         }
+
+        if(Input.GetKeyDown(KeyCode.Escape)) {
+            PauseGame();
+        }
     }
 
     public void MakeInstance() {
@@ -34,5 +43,19 @@ public class RacingGameController : MonoBehaviour {
 
     public void GetNextRhythmButton() {
         rhythmButtons.RemoveAt(0);
+    }
+
+    public void GoToHub() {
+        SceneManager.LoadScene("TestHub");
+    }
+
+    private void PauseGame() {
+        Time.timeScale = 0.0f;
+        instance.pausePanel.SetActive(true);
+    }
+
+    public void ResumeGame() {
+        Time.timeScale = 1.0f;
+        instance.pausePanel.SetActive(false);
     }
 }
