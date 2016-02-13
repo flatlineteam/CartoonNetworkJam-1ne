@@ -6,9 +6,9 @@ public class RhythmGuiMovement : MonoBehaviour {
     private CircleCollider2D target = null;
     private CircleCollider2D myCollider = null;
 
-    private bool notColliding = false;
-    private bool isColliding = false;
-    private bool isInsideTarget = false;
+    //private bool notColliding = false;
+    //private bool isColliding = false;
+    //private bool isInsideTarget = false;
 
     private float speed = 1.0f;
 
