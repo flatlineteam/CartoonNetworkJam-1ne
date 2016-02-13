@@ -3,15 +3,28 @@ using System.Collections;
 
 public class RhythmGuiMovement : MonoBehaviour {
 
+    //[SerializeField]
+    //private bool isTopRow = false;
+
     private CircleCollider2D target = null;
     private CircleCollider2D myCollider = null;
 
-    private float speed = 1.0f;
+    private bool isInContactWithGoal = false;
+    private bool isInsideGoal = false;
+
+    public bool IsInContactWithGoal {
+        get { return isInContactWithGoal; }
+    }
+
+    public bool IsInsideGoal {
+        get { return isInsideGoal; }
+    }
+
+    private float speed = 3.0f;
 
     // Use this for initialization
     void Start() { 
         myCollider = this.GetComponent<CircleCollider2D>();
-        //target = RacingGameController.instance.TopTarget;
     }
 	
 	// Update is called once per frame
@@ -28,14 +41,17 @@ public class RhythmGuiMovement : MonoBehaviour {
         float dist = (target.transform.position - this.transform.position).magnitude;
 
         if(dist > target.radius + myCollider.radius) {
-            //Debug.Log("<color=#33FF33>I Am Not In Contact With The Target!!</color>");// : " + dist);
+            if (isInsideGoal == true) isInsideGoal = false;
+            if (isInContactWithGoal == true) isInContactWithGoal = false;
         }
         else if( dist < target.radius + myCollider.radius) {
             if(dist < target.radius - myCollider.radius) {
-                //Debug.Log("<color=#FF3333>I Am In The Target!!</color>");// : " + dist);
+                isInsideGoal = true;
+                isInContactWithGoal = false;
             }
-            else { 
-                //Debug.Log("<color=#3333FF>I Am In Contact With The Target!!</color>");// : " + dist);
+            else {
+                isInContactWithGoal = true;
+                isInsideGoal = false;
             }
         }
     }

@@ -1,21 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class RacingGameController : MonoBehaviour {
 
     static public RacingGameController instance = null;
 
-    //[SerializeField]
-    //private CircleCollider2D topTarget = null;
-    //public CircleCollider2D TopTarget {
-    //    get { return instance.topTarget; }
-    //}
+    [SerializeField]
+    private RhythmButtonSpawner spawner = null;
 
-    //[SerializeField]
-    //private CircleCollider2D bottomTarget = null;
-    //public CircleCollider2D BottomTarget {
-    //    get { return instance.bottomTarget; }
-    //}
+    private float maxCountDown = 3.0f;
+    private float countDown = 0.0f;
+
+    public List<RhythmGuiMovement> rhythmButtons = new List<RhythmGuiMovement>();
 
     void Awake() {
         MakeInstance();
@@ -23,11 +20,19 @@ public class RacingGameController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-
+        countDown -= Time.deltaTime;
+        if (countDown < 0.0f) {
+            countDown = maxCountDown * Random.Range(0.75f, 1.25f);
+            spawner.ReleaseRhythmButton();
+        }
     }
 
     public void MakeInstance() {
         if (instance == null)
             instance = this;
+    }
+
+    public void GetNextRhythmButton() {
+        rhythmButtons.RemoveAt(0);
     }
 }
