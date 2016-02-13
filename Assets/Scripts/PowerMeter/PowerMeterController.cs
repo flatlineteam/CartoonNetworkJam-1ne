@@ -6,8 +6,8 @@ public class PowerMeterController : MonoBehaviour {
 	public float powerTarget = -1f; //should be set between 0f and 1f
 	public float difficulty = -1f; //should be set between 0f and 1f
 
-	public delegate void PowerMeterFinished(float target, float result);
-	public event PowerMeterFinished Finished;
+	public delegate void PowerMeterFinishedHandler(float target, float result);
+	public event PowerMeterFinishedHandler Finished;
 
 	private Transform needle;
 	private Transform target;
@@ -23,7 +23,7 @@ public class PowerMeterController : MonoBehaviour {
 	private bool needleIncreasing = true;
 	private bool done = false;
 
-	void Start() {
+	void Awake() {
 		if(powerTarget < 0f || difficulty < 0f)
 			Debug.LogError("Power Meter properties not set in inspector");
 		
@@ -36,10 +36,21 @@ public class PowerMeterController : MonoBehaviour {
 
 		//Point the target indicator in the correct direction
 		target.localRotation = getRotationFromPercentage(powerTarget);
+		Debug.Log("started");
+	}
 
-		Finished += (float establishedTarget, float result) => {
-			Debug.Log("target: "+establishedTarget+", result: "+result);
-		};
+	//use this to have the player use the power meter again
+	public void reset(float powerTarget, float difficulty) {
+		Debug.Log("resetting");
+		this.powerTarget = powerTarget;
+		this.difficulty = difficulty;
+
+		currentPowerLevel = 0f;
+		opacityDecreasing = true;
+		needleIncreasing = true;
+		done = false;
+
+		target.localRotation = getRotationFromPercentage(powerTarget);
 	}
 
 	void Update() {
@@ -58,12 +69,12 @@ public class PowerMeterController : MonoBehaviour {
 			}
 		} else if(!done) { //Once the player has tapped once, stop pulsing target indicator, start moving needle
 			if(needleIncreasing) {
-				currentPowerLevel += 1f * difficulty * Time.deltaTime;
+				currentPowerLevel += 2f * difficulty * Time.deltaTime;
 				needle.localRotation = getRotationFromPercentage(currentPowerLevel);
 				if(currentPowerLevel > .95f)
 					needleIncreasing = false;
 			} else {
-				currentPowerLevel -= 1f * difficulty * Time.deltaTime;
+				currentPowerLevel -= 2f * difficulty * Time.deltaTime;
 				needle.localRotation = getRotationFromPercentage(currentPowerLevel);
 				if(currentPowerLevel < .05f)
 					needleIncreasing = true;
