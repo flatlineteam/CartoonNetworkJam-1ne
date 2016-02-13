@@ -6,16 +6,12 @@ public class RhythmGuiMovement : MonoBehaviour {
     private CircleCollider2D target = null;
     private CircleCollider2D myCollider = null;
 
-    //private bool notColliding = false;
-    //private bool isColliding = false;
-    //private bool isInsideTarget = false;
-
     private float speed = 1.0f;
 
     // Use this for initialization
     void Start() { 
         myCollider = this.GetComponent<CircleCollider2D>();
-        target = RacingGameController.instance.TopTarget;
+        //target = RacingGameController.instance.TopTarget;
     }
 	
 	// Update is called once per frame
@@ -32,15 +28,19 @@ public class RhythmGuiMovement : MonoBehaviour {
         float dist = (target.transform.position - this.transform.position).magnitude;
 
         if(dist > target.radius + myCollider.radius) {
-            Debug.Log("<color=#33FF33>I Am Not In Contact With The Target!!</color>");// : " + dist);
+            //Debug.Log("<color=#33FF33>I Am Not In Contact With The Target!!</color>");// : " + dist);
         }
         else if( dist < target.radius + myCollider.radius) {
             if(dist < target.radius - myCollider.radius) {
-                Debug.Log("<color=#FF3333>I Am In The Target!!</color>");// : " + dist);
+                //Debug.Log("<color=#FF3333>I Am In The Target!!</color>");// : " + dist);
             }
             else { 
-                Debug.Log("<color=#3333FF>I Am In Contact With The Target!!</color>");// : " + dist);
+                //Debug.Log("<color=#3333FF>I Am In Contact With The Target!!</color>");// : " + dist);
             }
         }
+    }
+
+    public void SetTarget(CircleCollider2D tar) {
+        if (this.target == null) target = tar;
     }
 }
