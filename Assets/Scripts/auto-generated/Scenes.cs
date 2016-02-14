@@ -5,8 +5,9 @@ namespace k
 	public static class Scenes
 	{
 		public const string LEVEL_SELECT_SCENE = "LevelSelectScene";
+		public const string CAT_IN_ATREE_SCENE = "CatInATreeScene";
 
-		public const int TOTAL_SCENES = 1;
+		public const int TOTAL_SCENES = 2;
 
 
 		public static int nextSceneIndex()
