@@ -29,7 +29,7 @@ public class GrandmaScript : MonoBehaviour {
             this.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll; //RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezeAll;
             this.isBeingThrown = false;
-            BusyStreetLevelController.instance.GrandmaMadeIt();
+            BusyStreetLevelController.instance.GrandmaMadeIt(this.transform.position);
             this.gameObject.SetActive(false);
             Destroy(this.gameObject);
         }
