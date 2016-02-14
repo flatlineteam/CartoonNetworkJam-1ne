@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//I'd just like to say that this code was nice and clean,
+//and I'm aware that that's not the case anymore
 public class TreeMinigame : MonoBehaviour {
 
 	public JethroController jethro;
@@ -18,7 +20,7 @@ public class TreeMinigame : MonoBehaviour {
 
 		//use this for things that you want to happen after the hit animations
 		jethro.treeHit += () => {
-			tree.hit(hitCorrectly);
+			tree.hit(treeHP, hitCorrectly);
 			heartCounter.setHP(treeHP);
 			if(treeHP == 3)
 				powerMeter.reset(.33f, .3f);
@@ -48,7 +50,9 @@ public class TreeMinigame : MonoBehaviour {
 
 			tries++;
 
-			jethro.ramTree();
+			tree.attack();
+
+			jethro.ramTree(hitCorrectly);
 		};
 	}
 
