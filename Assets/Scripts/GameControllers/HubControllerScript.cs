@@ -36,7 +36,9 @@ public class HubControllerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+	    if(Input.GetKey(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Escape)) {
+            instance.PauseGame();
+        }
 	}
 
     void MakeInstance() {
