@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using System.Collections;
 
 public class BusyStreetLevelController : MonoBehaviour {
@@ -7,16 +8,22 @@ public class BusyStreetLevelController : MonoBehaviour {
     static public BusyStreetLevelController instance = null;
 
     [SerializeField]
-    private GameObject pausePanel = null;
+    private GameObject pausePanel = null, gameWinPanel = null;
 
     [SerializeField]
-    private GameObject grandmaPrefab = null;
+    private GameObject grandmaPrefab = null, starPrefab = null;
 
     [SerializeField]
     private BroBotBusyStreetController player = null;
 
-    private float yTopBound = 10.0f;
-    private float yBottomBound = -7.5f;
+    [SerializeField]
+    private Text starCount = null;
+
+    private int consecutiveScores = 0;
+    private int score = 0;
+
+    private float yTopBound = 7.5f;
+    private float yBottomBound = -4.5f;
 
     public float YTopBound {
         get { return yTopBound; }
@@ -35,8 +42,11 @@ public class BusyStreetLevelController : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if(Input.GetKeyDown(KeyCode.Escape)) {
-            //instance.pausePanel.SetActive(true);
             PauseGame();
+        }
+
+        if(GameManager.instance.CurrentGameScore >= 3) {
+            ShowWinScreen();
         }
     }
 
@@ -45,8 +55,18 @@ public class BusyStreetLevelController : MonoBehaviour {
             instance = this;
     }
 
+    public void SetStarCountText() {
+        instance.starCount.text = "x" + GameManager.instance.CurrentGameScore;
+    }
+
     public void GoToHub() {
-        //SceneManager.LoadScene("TestHub");
+       // Debug.Log("My Score : " + GameManager.instance.CurrentGameScore + " XXX Current High Score : " + GamePreferences.GetBusyStreetHighScore());
+        int previousScore = GamePreferences.GetBusyStreetHighScore();
+        if (GameManager.instance.CurrentGameScore >= previousScore) { 
+            GameManager.instance.SaveGrandmaTossScore();
+            //Debug.Log("This is happening");
+        }
+
         SceneManager.LoadScene("HubScene");
     }
 
@@ -59,15 +79,19 @@ public class BusyStreetLevelController : MonoBehaviour {
         Time.timeScale = 1.0f;
         instance.pausePanel.SetActive(false);
     }
-
+    
     public void GrandmaSquashed() {
         Time.timeScale = 0.0f;
         instance.pausePanel.SetActive(true);
     }
 
-    public void GrandmaMadeIt() {
+    public void GrandmaMadeIt(Vector3 position) {
         SpawnNewGrandma();
         // Score Points
+        GameManager.instance.IncreaseScore();
+        instance.SetStarCountText();
+        //Debug.Log(GameManager.instance.CurrentGameScore);
+        Instantiate(starPrefab, position, Quaternion.identity);
     }
 
     // Spawn new Grandma
@@ -78,7 +102,6 @@ public class BusyStreetLevelController : MonoBehaviour {
                                                         0.0f),
                                             Quaternion.identity) as GameObject;
         newGrandma.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-        //player.GetNewPassenger(newGrandma.GetComponent<Rigidbody2D>());
     }
 
     public void PickUpGrandma(GameObject grandma) {
@@ -86,7 +109,11 @@ public class BusyStreetLevelController : MonoBehaviour {
     }
 
     public void ResetGrandma(GameObject grandma) {
-        //grandma.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
         player.GetNewPassenger(grandma.GetComponent<Rigidbody2D>());
+    }
+
+    public void ShowWinScreen() {
+        Time.timeScale = 0.0f;
+        instance.gameWinPanel.SetActive(true);
     }
 }

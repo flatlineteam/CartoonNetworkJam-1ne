@@ -9,9 +9,6 @@ public class BroBotBusyStreetController : MonoBehaviour {
     [SerializeField]
     private Vector3 movementDist = new Vector3(0.0f, 2.5f, 0.0f);
 
-    //private float yTopBound = 10.0f;
-    //private float yBottomBound = -7.5f;
-
     private Vector3 myDirection = Vector3.up;
 
     [SerializeField]
@@ -21,7 +18,7 @@ public class BroBotBusyStreetController : MonoBehaviour {
     private GameObject seat = null;
 
     [SerializeField]
-    private float speed = 1.0f;
+    private float speed = 2.5f;
 
     // Use this for initialization
     void Start() {
@@ -34,40 +31,14 @@ public class BroBotBusyStreetController : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (Input.GetKeyDown(KeyCode.Space)) {
-            //Debug.Log("Doing this");
-            //Debug.Log(passenger);
             if (passenger != null) {
                 LaunchGrandma();
-                //passenger.AddRelativeForce(Vector2.up);
-                //passenger.GetComponent<GrandmaScript>().ThrowGrandma();
-                //passenger.transform.SetParent(null);
             }
         }
 
         if (passenger != null) return;
-
-        //Debug.Log(passenger);
-        //Debug.Log(myDirection);
-
-        //if (/*Input.GetKey(KeyCode.W) ||*/ Input.GetKeyDown(KeyCode.W)) {
-        //    this.transform.position += movementDist;// * Time.deltaTime * speed;
-        //}
-        //if (/*Input.GetKey(KeyCode.S) ||*/ Input.GetKeyDown(KeyCode.S)) {
-        //    this.transform.position -= movementDist;// * Time.deltaTime * speed;
-        //}
-
-        //if(Input.GetKeyDown(KeyCode.Space)) {
-        //    //Debug.Log("Doing this");
-        //    //Debug.Log(passenger);
-        //    if (passenger != null) {
-        //        LaunchGrandma();
-        //        //passenger.AddRelativeForce(Vector2.up);
-        //        //passenger.GetComponent<GrandmaScript>().ThrowGrandma();
-        //        //passenger.transform.SetParent(null);
-        //    }
-        //}
-
-        this.transform.position += myDirection * Time.deltaTime * speed;// * Time.deltaTime * speed;
+        
+        this.transform.position += myDirection * Time.deltaTime * speed;
 
         // Check y position to make sure we don't go backwards off of the screen
         if (this.transform.position.y < BusyStreetLevelController.instance.YBottomBound) {
@@ -112,15 +83,7 @@ public class BroBotBusyStreetController : MonoBehaviour {
     }
 
     public void GetNewPassenger(Rigidbody2D pass) {
-        //pass.gameObject.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
         passenger = pass;
         AssignPassengerToSeat();
     }
-
-    //void OnTriggerEnter2D(Collider2D coll) {
-    //    if(coll.gameObject.layer == 8) {
-    //        if (this.passenger != null) return;
-    //        BusyStreetLevelController.instance.PickUpGrandma(this.gameObject);
-    //    }
-    //}
 }
