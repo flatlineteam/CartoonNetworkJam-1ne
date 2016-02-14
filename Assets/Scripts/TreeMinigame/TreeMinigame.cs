@@ -50,10 +50,10 @@ public class TreeMinigame : MonoBehaviour {
 			powerMeter.shouldHold(true);
 
 			//Debug.Log("target: " + target + ", result: " + result);
-			if(result > target + .05f) {
+			if(result > target + .13f) {
 				hitCorrectly = false;
 				treeHP++;
-			} else if(result < target - .05f) {
+			} else if(result < target - .13f) {
 				hitCorrectly = false;
 				treeHP++;
 			} else {
