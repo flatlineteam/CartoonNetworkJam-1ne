@@ -3,14 +3,19 @@ using System.Collections;
 
 public class TreeController : MonoBehaviour {
 
+	private Animator anim;
+
 	private float shakeTime = 0f;
-	private float lastTime; //used for float overflow checking
 	private Vector3 lastMove = Vector3.zero;
 
+	int hpHash = Animator.StringToHash("hp");
+	int attackHash = Animator.StringToHash("TreeAttack");
+
+	public void Start() {
+		anim = GetComponent<Animator>();
+	}
+
 	void Update () {
-		if(lastTime > Time.timeSinceLevelLoad)
-			shakeTime = 0;
-		
 		if(shakeTime > Time.timeSinceLevelLoad) {
 			if(lastMove == Vector3.zero) {
 				lastMove = randomVector() * .1f;
@@ -21,11 +26,22 @@ public class TreeController : MonoBehaviour {
 			}
 		}
 
-		lastTime = Time.timeSinceLevelLoad;
 	}
 
-	public void hit(bool hard) {
-		shakeTime = hard ? Time.timeSinceLevelLoad + .5f : Time.timeSinceLevelLoad + .25f;
+	public void hit(int newHP, bool correctly) {
+		anim.SetInteger(hpHash, newHP);
+		if(correctly) {
+			shakeTime = Time.timeSinceLevelLoad + .25f;
+		}
+	}
+
+	public void attack() {
+		anim.SetTrigger(attackHash);
+	}
+
+	//hp should be taken care of inside this class in the future
+	public void setHP(int hp) {
+		anim.SetInteger(hpHash, hp);
 	}
 
 	private Vector3 randomVector() {

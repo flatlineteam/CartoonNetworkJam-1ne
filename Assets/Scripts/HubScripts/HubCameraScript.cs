@@ -6,8 +6,8 @@ public class HubCameraScript : MonoBehaviour {
     [SerializeField]
     private GameObject player = null;
 
-    private Vector3 startingPosition = new Vector3(0.0f, 0.0f, -10.0f);
-    private Vector3 endingPosition = new Vector3(25.0f, 0.0f, -10.0f);
+    private Vector3 startingPosition = new Vector3(2.66f, 0.0f, -10.0f);
+    private Vector3 endingPosition = new Vector3(23.0f, 0.0f, -10.0f);
 
 	// Use this for initialization
 	void Start () {

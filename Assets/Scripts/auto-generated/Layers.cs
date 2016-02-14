@@ -12,6 +12,7 @@ namespace k
 		public const int FRIENDLY = 9;
 		public const int BUSY_STREET_GOAL = 10;
 		public const int HAZARD = 11;
+		public const int WORLD_END = 31;
 
 
 		public static int onlyIncluding( params int[] layers )

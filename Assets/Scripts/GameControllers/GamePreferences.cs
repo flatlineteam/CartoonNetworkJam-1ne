@@ -7,6 +7,12 @@ public class GamePreferences {
     static private string racingGameHighScore = "racingGameHighScore";
     static private string treeGameHighScore = "treeGameHighScore";
 
+    static public void ResetAllScores() {
+        SetBusyStreetHighScore(0);
+        SetRacingGameHighScore(0);
+        SetTreeGameHighScore(0);
+    }
+
     static public void SetBusyStreetHighScore(int score) {
         PlayerPrefs.SetInt(busyStreetHighScore, score);
     }
