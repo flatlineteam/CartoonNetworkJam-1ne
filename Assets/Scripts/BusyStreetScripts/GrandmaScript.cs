@@ -3,6 +3,8 @@ using System.Collections;
 
 public class GrandmaScript : MonoBehaviour {
 
+    private bool isBeingThrown = false;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -10,12 +12,34 @@ public class GrandmaScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+        if (isBeingThrown == true)
+            this.transform.position += Vector3.right * Time.deltaTime * 11.5f;
 	}
 
     void OnTriggerEnter2D(Collider2D coll) {
+        if(coll.gameObject.layer == 8) {
+            BusyStreetLevelController.instance.PickUpGrandma(this.gameObject);
+        }
         if(coll.gameObject.layer == 10) {
             this.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll; //RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezeAll;
+            this.isBeingThrown = false;
+            BusyStreetLevelController.instance.GrandmaMadeIt();
+            this.gameObject.SetActive(false);
         }
+        if(coll.gameObject.layer == 11) {
+            Debug.Log("Grandma Squashed!!");
+            this.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll; //RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezeAll;
+            this.isBeingThrown = false;
+            BusyStreetLevelController.instance.GrandmaSquashed();
+            BusyStreetLevelController.instance.ResetGrandma(this.gameObject);
+            //BusyStreetLevelController.instance.Gran
+            //this.gameObject.SetActive(false);
+        }
+    }
+
+    public void ThrowGrandma() {
+        this.isBeingThrown = true;
     }
 }

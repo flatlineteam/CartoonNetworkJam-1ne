@@ -8,6 +8,10 @@ namespace k
 		public const int IGNORE_RAYCAST = 2;
 		public const int WATER = 4;
 		public const int UI = 5;
+		public const int PLAYER = 8;
+		public const int FRIENDLY = 9;
+		public const int BUSY_STREET_GOAL = 10;
+		public const int HAZARD = 11;
 
 
 		public static int onlyIncluding( params int[] layers )
