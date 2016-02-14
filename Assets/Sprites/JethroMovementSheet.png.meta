@@ -1,0 +1,320 @@
+fileFormatVersion: 2
+guid: ae50eb4d6e7bbc94a9a1f5890fde8c87
+timeCreated: 1455445836
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Jethro_Idle
+    21300002: Jethro_Forward_1
+    21300004: Jethro_Forward_2
+    21300006: Jethro_BackUp_1
+    21300008: Jethro_BackUp_2
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Jethro_Idle
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 904
+        width: 443
+        height: 419
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 188.5, y: -139.5}
+        - {x: 145.5, y: -83.5}
+        - {x: 136.5, y: -76.5}
+        - {x: 139.5, y: -58.5}
+        - {x: 137.5, y: -29.5}
+        - {x: 139.5, y: -19.5}
+        - {x: 137.5, y: -17.5}
+        - {x: 138.5, y: 52.5}
+        - {x: 130.5, y: 75.5}
+        - {x: 109.5, y: 100.5}
+        - {x: 85.5, y: 116.5}
+        - {x: 72.5, y: 123.5}
+        - {x: 58.5, y: 128.5}
+        - {x: 2.5, y: 130.5}
+        - {x: -10.5, y: 126.5}
+        - {x: -34.5, y: 117.5}
+        - {x: -59.5, y: 101.5}
+        - {x: -90.5, y: 108.5}
+        - {x: -91.5, y: 128.5}
+        - {x: -93.5, y: 132.5}
+        - {x: -142.5, y: 132.5}
+        - {x: -135.5, y: 43.5}
+        - {x: -124.5, y: 31.5}
+        - {x: -95.5, y: 19.5}
+        - {x: -89.5, y: -44.5}
+        - {x: -95.5, y: -84.5}
+        - {x: -104.5, y: -91.5}
+        - {x: -157.5, y: -145.5}
+        - {x: -188.5, y: -185.5}
+        - {x: -201.5, y: -206.5}
+        - {x: -201.5, y: -209.5}
+        - {x: 221.5, y: -209.5}
+        - {x: 221.5, y: -196.5}
+        - {x: 212.5, y: -179.5}
+      - - {x: -221.5, y: 196.5}
+        - {x: -220.5, y: 195.5}
+        - {x: -217.5, y: 196.5}
+        - {x: -217.5, y: 201.5}
+        - {x: -219.5, y: 203.5}
+        - {x: -221.5, y: 202.5}
+    - name: Jethro_Forward_1
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 459
+        width: 425
+        height: 385
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 212.5, y: -135.5}
+        - {x: 196.5, y: -77.5}
+        - {x: 184.5, y: -56.5}
+        - {x: 128.5, y: -40.5}
+        - {x: 128.5, y: -38.5}
+        - {x: 129.5, y: 0.5}
+        - {x: 127.5, y: 2.5}
+        - {x: 128.5, y: 72.5}
+        - {x: 120.5, y: 95.5}
+        - {x: 99.5, y: 120.5}
+        - {x: 75.5, y: 136.5}
+        - {x: 62.5, y: 144.5}
+        - {x: 40.5, y: 148.5}
+        - {x: -6.5, y: 148.5}
+        - {x: -20.5, y: 146.5}
+        - {x: -44.5, y: 137.5}
+        - {x: -69.5, y: 121.5}
+        - {x: -85.5, y: 100.5}
+        - {x: -107.5, y: 107.5}
+        - {x: -118.5, y: 136.5}
+        - {x: -120.5, y: 140.5}
+        - {x: -133.5, y: 141.5}
+        - {x: -168.5, y: 128.5}
+        - {x: -139.5, y: 47.5}
+        - {x: -136.5, y: 36.5}
+        - {x: -98.5, y: 34.5}
+        - {x: -96.5, y: -89.5}
+        - {x: -147.5, y: -127.5}
+        - {x: -182.5, y: -159.5}
+        - {x: -212.5, y: -190.5}
+        - {x: -212.5, y: -192.5}
+        - {x: 36.5, y: -192.5}
+        - {x: 36.5, y: -189.5}
+        - {x: 210.5, y: -189.5}
+        - {x: 212.5, y: -188.5}
+      - - {x: 200.5, y: 190.5}
+        - {x: 198.5, y: 188.5}
+        - {x: 198.5, y: 185.5}
+        - {x: 200.5, y: 183.5}
+        - {x: 202.5, y: 183.5}
+        - {x: 204.5, y: 185.5}
+        - {x: 204.5, y: 188.5}
+        - {x: 202.5, y: 190.5}
+    - name: Jethro_Forward_2
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 455
+        width: 425
+        height: 343
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 212.5, y: -163.5}
+        - {x: 212.5, y: -110.5}
+        - {x: 196.5, y: -52.5}
+        - {x: 184.5, y: -31.5}
+        - {x: 127.5, y: -13.5}
+        - {x: 128.5, y: 25.5}
+        - {x: 126.5, y: 27.5}
+        - {x: 127.5, y: 97.5}
+        - {x: 119.5, y: 120.5}
+        - {x: 98.5, y: 145.5}
+        - {x: 75.5, y: 163.5}
+        - {x: 54.5, y: 171.5}
+        - {x: -25.5, y: 171.5}
+        - {x: -53.5, y: 159.5}
+        - {x: -86.5, y: 128.5}
+        - {x: -105.5, y: 124.5}
+        - {x: -117.5, y: 166.5}
+        - {x: -120.5, y: 170.5}
+        - {x: -132.5, y: 169.5}
+        - {x: -160.5, y: 162.5}
+        - {x: -165.5, y: 159.5}
+        - {x: -145.5, y: 72.5}
+        - {x: -121.5, y: 63.5}
+        - {x: -101.5, y: 64.5}
+        - {x: -97.5, y: 65.5}
+        - {x: -99.5, y: -10.5}
+        - {x: -97.5, y: -64.5}
+        - {x: -154.5, y: -108.5}
+        - {x: -168.5, y: -121.5}
+        - {x: -212.5, y: -165.5}
+        - {x: -212.5, y: -171.5}
+        - {x: 34.5, y: -171.5}
+        - {x: 36.5, y: -169.5}
+        - {x: 36.5, y: -164.5}
+        - {x: 210.5, y: -164.5}
+      - - {x: -192.5, y: -108.5}
+        - {x: -189.5, y: -107.5}
+        - {x: -189.5, y: -104.5}
+        - {x: -192.5, y: -103.5}
+        - {x: -194.5, y: -105.5}
+      - - {x: -136.5, y: -64.5}
+        - {x: -133.5, y: -63.5}
+        - {x: -133.5, y: -60.5}
+        - {x: -136.5, y: -59.5}
+        - {x: -138.5, y: -61.5}
+    - name: Jethro_BackUp_1
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 12
+        width: 426
+        height: 362
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 213, y: -161}
+        - {x: 157, y: -95}
+        - {x: 126, y: -65}
+        - {x: 128, y: -24}
+        - {x: 128, y: -22}
+        - {x: 129, y: 17}
+        - {x: 127, y: 19}
+        - {x: 128, y: 89}
+        - {x: 120, y: 112}
+        - {x: 99, y: 137}
+        - {x: 75, y: 153}
+        - {x: 63, y: 164}
+        - {x: -8, y: 168}
+        - {x: -21, y: 163}
+        - {x: -45, y: 154}
+        - {x: -69, y: 137}
+        - {x: -91, y: 127}
+        - {x: -80, y: 172}
+        - {x: -103, y: 181}
+        - {x: -133, y: 181}
+        - {x: -146, y: 92}
+        - {x: -138, y: 84}
+        - {x: -115, y: 76}
+        - {x: -114, y: 64}
+        - {x: -98, y: 70}
+        - {x: -99, y: -19}
+        - {x: -97, y: -48}
+        - {x: -133, y: -49}
+        - {x: -146, y: -62}
+        - {x: -170, y: -92}
+        - {x: -194, y: -128}
+        - {x: -213, y: -168}
+        - {x: -213, y: -181}
+        - {x: 35, y: -181}
+        - {x: 37, y: -180}
+        - {x: 36, y: -175}
+        - {x: 213, y: -176}
+    - name: Jethro_BackUp_2
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 12
+        width: 426
+        height: 360
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 213, y: -174}
+        - {x: 213, y: -158}
+        - {x: 212, y: -155}
+        - {x: 166, y: -105}
+        - {x: 156, y: -95}
+        - {x: 135, y: -72}
+        - {x: 126, y: -64}
+        - {x: 128, y: -23}
+        - {x: 128, y: -21}
+        - {x: 129, y: 18}
+        - {x: 127, y: 20}
+        - {x: 128, y: 90}
+        - {x: 120, y: 113}
+        - {x: 99, y: 138}
+        - {x: 76, y: 157}
+        - {x: 38, y: 169}
+        - {x: -8, y: 168}
+        - {x: -46, y: 157}
+        - {x: -92, y: 127}
+        - {x: -86, y: 173}
+        - {x: -107, y: 180}
+        - {x: -136, y: 180}
+        - {x: -150, y: 107}
+        - {x: -141, y: 79}
+        - {x: -112, y: 66}
+        - {x: -96, y: 73}
+        - {x: -99, y: -18}
+        - {x: -97, y: -47}
+        - {x: -133, y: -48}
+        - {x: -146, y: -61}
+        - {x: -170, y: -91}
+        - {x: -194, y: -127}
+        - {x: -213, y: -167}
+        - {x: -213, y: -180}
+        - {x: 35, y: -180}
+        - {x: 37, y: -179}
+        - {x: 37, y: -175}
+        - {x: 212, y: -174}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
