@@ -36,12 +36,10 @@ public class PowerMeterController : MonoBehaviour {
 
 		//Point the target indicator in the correct direction
 		target.localRotation = getRotationFromPercentage(powerTarget);
-		Debug.Log("started");
 	}
 
 	//use this to have the player use the power meter again
 	public void reset(float powerTarget, float difficulty) {
-		Debug.Log("resetting");
 		this.powerTarget = powerTarget;
 		this.difficulty = difficulty;
 

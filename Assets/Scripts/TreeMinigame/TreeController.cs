@@ -7,11 +7,6 @@ public class TreeController : MonoBehaviour {
 	private float lastTime; //used for float overflow checking
 	private Vector3 lastMove = Vector3.zero;
 
-	void Start () {
-		hit(true);
-	}
-	
-
 	void Update () {
 		if(lastTime > Time.timeSinceLevelLoad)
 			shakeTime = 0;
@@ -25,6 +20,8 @@ public class TreeController : MonoBehaviour {
 				lastMove = Vector3.zero;
 			}
 		}
+
+		lastTime = Time.timeSinceLevelLoad;
 	}
 
 	public void hit(bool hard) {
