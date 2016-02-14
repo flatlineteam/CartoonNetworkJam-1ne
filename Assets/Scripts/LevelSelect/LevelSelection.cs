@@ -26,6 +26,7 @@ public class LevelSelection : MonoBehaviour {
 	}
 
 	public void setScore(int score) {
+		Debug.Log("yo");
 		this.score = score;
 		starCounter.setScore(score);
 	}
