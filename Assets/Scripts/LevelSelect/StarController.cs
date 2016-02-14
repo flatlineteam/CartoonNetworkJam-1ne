@@ -8,12 +8,11 @@ public class StarController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		greyStar = transform.FindChild("GreyStar").gameObject;
-		goldStar = transform.FindChild("GoldStar").gameObject;
 		setFull(true);
 	}
 
 	public void setFull(bool full) {
+		Debug.Log("" + gameObject.name + " set to: " + full);
 		goldStar.SetActive(full);
 		greyStar.SetActive(!full);
 	}
