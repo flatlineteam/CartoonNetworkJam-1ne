@@ -5,6 +5,8 @@ public class GrandmaScript : MonoBehaviour {
 
     private bool isBeingThrown = false;
 
+    private float speed = 11.5f;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -12,8 +14,11 @@ public class GrandmaScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (isBeingThrown == true)
-            this.transform.position += Vector3.right * Time.deltaTime * 11.5f;
+        if (isBeingThrown == true) {
+            this.transform.position += Vector3.right * Time.deltaTime * speed;
+            //this.transform.rotation += Vector2.right * speed * Time.deltaTime;
+            this.transform.Rotate(Vector3.forward, -25.0f);
+        }
 	}
 
     void OnTriggerEnter2D(Collider2D coll) {
@@ -26,6 +31,7 @@ public class GrandmaScript : MonoBehaviour {
             this.isBeingThrown = false;
             BusyStreetLevelController.instance.GrandmaMadeIt();
             this.gameObject.SetActive(false);
+            Destroy(this.gameObject);
         }
         if(coll.gameObject.layer == 11) {
             Debug.Log("Grandma Squashed!!");

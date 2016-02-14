@@ -72,11 +72,12 @@ public class BusyStreetLevelController : MonoBehaviour {
 
     // Spawn new Grandma
     private void SpawnNewGrandma() {
-        GameObject newGrandma = Instantiate( instance.grandmaPrefab, 
+        GameObject newGrandma = Instantiate(instance.grandmaPrefab, 
                                             new Vector3(player.transform.position.x,
                                                         Random.Range(instance.YBottomBound + 0.75f, instance.YTopBound - 0.75f),
                                                         0.0f),
                                             Quaternion.identity) as GameObject;
+        newGrandma.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
         //player.GetNewPassenger(newGrandma.GetComponent<Rigidbody2D>());
     }
 
@@ -85,6 +86,7 @@ public class BusyStreetLevelController : MonoBehaviour {
     }
 
     public void ResetGrandma(GameObject grandma) {
+        //grandma.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
         player.GetNewPassenger(grandma.GetComponent<Rigidbody2D>());
     }
 }

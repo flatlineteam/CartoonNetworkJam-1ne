@@ -100,6 +100,7 @@ public class BroBotBusyStreetController : MonoBehaviour {
         
         passenger.transform.SetParent(null);
         passenger.GetComponent<GrandmaScript>().ThrowGrandma();
+        passenger.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
         passenger = null;
 
     }
@@ -107,9 +108,11 @@ public class BroBotBusyStreetController : MonoBehaviour {
     private void AssignPassengerToSeat() {
         passenger.transform.SetParent(seat.transform);
         passenger.transform.position = seat.transform.position;
+        passenger.gameObject.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
     }
 
     public void GetNewPassenger(Rigidbody2D pass) {
+        //pass.gameObject.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
         passenger = pass;
         AssignPassengerToSeat();
     }
