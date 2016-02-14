@@ -4,7 +4,7 @@ using System.Collections;
 public class JethroController : MonoBehaviour {
 
 	private Vector3 start = new Vector3(-2f, -3.5f);
-	private Vector3 finish = new Vector3(1.5f, -3.5f);
+	private Vector3 finish = new Vector3(3.5f, -3.5f);
 	private float hitTime = 0f;
 	private float returnTime = 0f;
 	private float moveTime;
