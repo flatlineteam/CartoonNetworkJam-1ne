@@ -23,4 +23,8 @@ public class EnidScript : MonoBehaviour {
     void PlayLevel() {
         HubControllerScript.instance.ShowEnidLevel();
     }
+
+    void SkipLevel() {
+        HubControllerScript.instance.DontPlayLevel();
+    }
 }

@@ -46,7 +46,8 @@ public class RacingGameController : MonoBehaviour {
     }
 
     public void GoToHub() {
-        SceneManager.LoadScene("TestHub");
+        //SceneManager.LoadScene("TestHub");
+        SceneManager.LoadScene("HubScene");
     }
 
     private void PauseGame() {

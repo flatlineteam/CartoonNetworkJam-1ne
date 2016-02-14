@@ -23,4 +23,16 @@ public class RadiclesScript : MonoBehaviour {
     void PlayLevel() {
         HubControllerScript.instance.ShowRadiclesLevel();
     }
+
+    void SkipLevel() {
+        HubControllerScript.instance.DontPlayLevel();
+    }
+
+    //void OnTriggerExit2D(Collider2D coll) {
+    //    if (coll.gameObject.layer == 8) {
+    //        //Debug.Log("This Is Happening!!");
+    //        //coll.SendMessage("SkipLevel");
+    //        this.SkipLevel();
+    //    }
+    //}
 }

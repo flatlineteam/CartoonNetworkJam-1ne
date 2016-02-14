@@ -31,7 +31,7 @@ public class HubControllerScript : MonoBehaviour {
     }
 
     public void PlayKOLevel() {
-        SceneManager.LoadScene("TestFrogger");
+        SceneManager.LoadScene("BusyStreetScene");
     }
 
     public void PlayEnidLevel() {
@@ -39,7 +39,7 @@ public class HubControllerScript : MonoBehaviour {
     }
 
     public void PlayRadiclesLevel() {
-        SceneManager.LoadScene("TestRacing");
+        SceneManager.LoadScene("RacingScene");
     }
 
     public void ShowRadiclesLevel() {
@@ -55,8 +55,9 @@ public class HubControllerScript : MonoBehaviour {
     }
 
     public void DontPlayLevel() {
-        if (instance.radiclesLevel.activeSelf == true) instance.radiclesLevel.SetActive(false);
-        if (instance.enidLevel.activeSelf == true) instance.enidLevel.SetActive(false);
-        if (instance.koLevel.activeSelf == true) instance.koLevel.SetActive(false);
+        //Debug.Log("This is Happening");
+       /* if (instance.radiclesLevel.activeSelf == true)*/ instance.radiclesLevel.SetActive(false);
+       /* if (instance.enidLevel.activeSelf == true)*/ instance.enidLevel.SetActive(false);
+       /* if (instance.koLevel.activeSelf == true)*/ instance.koLevel.SetActive(false);
     }
 }

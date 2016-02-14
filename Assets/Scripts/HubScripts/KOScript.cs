@@ -23,4 +23,8 @@ public class KOScript : MonoBehaviour {
     void PlayLevel() {
         HubControllerScript.instance.ShowKOLevel();
     }
+
+    void SkipLevel() {
+        HubControllerScript.instance.DontPlayLevel();
+    }
 }

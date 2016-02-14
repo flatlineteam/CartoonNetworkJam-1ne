@@ -10,6 +10,9 @@ public class BroBotBusyStreetController : MonoBehaviour {
     private Vector3 movementDist = new Vector3(0.0f, 2.5f, 0.0f);
 
     [SerializeField]
+    private Rigidbody2D passenger = null;
+
+    [SerializeField]
     private float speed = 1.0f;
 
     // Use this for initialization
@@ -22,11 +25,19 @@ public class BroBotBusyStreetController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+//if (passenger != null) return;
+
         if (/*Input.GetKey(KeyCode.W) ||*/ Input.GetKeyDown(KeyCode.W)) {
             this.transform.position += movementDist;// * Time.deltaTime * speed;
         }
         if (/*Input.GetKey(KeyCode.S) ||*/ Input.GetKeyDown(KeyCode.S)) {
             this.transform.position -= movementDist;// * Time.deltaTime * speed;
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space)) {
+            Debug.Log("Doing this");
+            if (passenger != null)
+                passenger.AddRelativeForce(Vector2.up);
         }
 
         // Check y position to make sure we don't go backwards off of the screen
@@ -44,5 +55,13 @@ public class BroBotBusyStreetController : MonoBehaviour {
 
             this.transform.position = newPos;
         }
+    }
+
+    public void LaunchGrandma() {
+        if (passenger == null) return;
+
+        passenger.AddRelativeForce(Vector2.up);
+        passenger = null;
+        passenger.transform.SetParent(null);
     }
 }
