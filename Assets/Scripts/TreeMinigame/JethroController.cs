@@ -20,10 +20,6 @@ public class JethroController : MonoBehaviour {
 	public event TreeHit treeHit;
 
 	private float time;
-	 
-	void Start () {
-	
-	}
 
 	void Update () {
 		if(ramming) {
@@ -58,6 +54,7 @@ public class JethroController : MonoBehaviour {
 	}
 
 	public void ramTree(bool hitCorrectly) {
+		Debug.Log("ramming");
 		time = Time.timeSinceLevelLoad;
 		ramming = true;
 		if(hitCorrectly)
@@ -70,6 +67,10 @@ public class JethroController : MonoBehaviour {
 		returnTime = (hitTime = time + moveTime) + moveTime;
 	}
 		
+	public bool isRamming() {
+		return ramming;
+	}
+
 	private Vector3 randomVector() {
 		return new Vector3(Random.value, Random.value);
 	}
