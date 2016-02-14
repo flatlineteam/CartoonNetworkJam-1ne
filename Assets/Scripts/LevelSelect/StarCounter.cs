@@ -21,7 +21,7 @@ public class StarCounter : MonoBehaviour {
 		case 1:
 			star1.setFull(true);
 			star2.setFull(false);
-			star2.setFull(false);
+			star3.setFull(false);
 			break;
 		case 2:
 			star1.setFull(true);
