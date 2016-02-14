@@ -22,17 +22,24 @@ public class TreeMinigame : MonoBehaviour {
 		jethro.treeHit += () => {
 			tree.hit(treeHP, hitCorrectly);
 			heartCounter.setHP(treeHP);
+			powerMeter.shouldHold(false);
 			if(treeHP == 3)
 				powerMeter.reset(.33f, .3f);
 			else if(treeHP == 2)
 				powerMeter.reset(.66f, .5f);
 			else if(treeHP == 1)
 				powerMeter.reset(.9f, .75f);
-			else
+			else {
 				win();
+				powerMeter.shouldHold(true);
+			}
 		};
 			
 		powerMeter.Finished += (float target, float result) => {
+			if(jethro.isRamming())
+				return;
+			powerMeter.shouldHold(true);
+
 			//Debug.Log("target: " + target + ", result: " + result);
 			if(result > target + .05f) {
 				hitCorrectly = false;
@@ -49,6 +56,7 @@ public class TreeMinigame : MonoBehaviour {
 				treeHP = 3;
 
 			tries++;
+
 
 			tree.attack();
 

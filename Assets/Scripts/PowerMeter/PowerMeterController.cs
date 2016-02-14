@@ -9,9 +9,9 @@ public class PowerMeterController : MonoBehaviour {
 	public delegate void PowerMeterFinishedHandler(float target, float result);
 	public event PowerMeterFinishedHandler Finished;
 
-	private Transform needle;
-	private Transform target;
-	private SpriteRenderer targetSprite;
+	public Transform needle;
+	public Transform target;
+	public SpriteRenderer targetSprite;
 
 	//the angles that represent the max position for the needle
 	private readonly float left = 55f;
@@ -21,7 +21,7 @@ public class PowerMeterController : MonoBehaviour {
 	private float currentPowerLevel = 0f;
 	private bool opacityDecreasing = true;
 	private bool needleIncreasing = true;
-	private bool done = false;
+	private bool hold = false;
 
 	void Awake() {
 		if(powerTarget < 0f || difficulty < 0f)
@@ -40,13 +40,14 @@ public class PowerMeterController : MonoBehaviour {
 
 	//use this to have the player use the power meter again
 	public void reset(float powerTarget, float difficulty) {
+		Debug.Log("reset");
 		this.powerTarget = powerTarget;
 		this.difficulty = difficulty;
 
 		currentPowerLevel = 0f;
 		opacityDecreasing = true;
 		needleIncreasing = true;
-		done = false;
+		hold = false;
 
 		target.localRotation = getRotationFromPercentage(powerTarget);
 	}
@@ -65,7 +66,7 @@ public class PowerMeterController : MonoBehaviour {
 				if(a >= .95f)
 					opacityDecreasing = true;
 			}
-		} else if(!done) { //Once the player has tapped once, stop pulsing target indicator, start moving needle
+		} else if(!hold) {
 			if(needleIncreasing) {
 				currentPowerLevel += 2f * difficulty * Time.deltaTime;
 				needle.localRotation = getRotationFromPercentage(currentPowerLevel);
@@ -81,10 +82,10 @@ public class PowerMeterController : MonoBehaviour {
 
 
 		#if UNITY_STANDALONE_WIN
-		if(Input.GetMouseButtonUp(0) && !done) {
+		if(Input.GetMouseButtonUp(0) && !hold) {
 		#endif
 		#if UNITY_ANDROID
-		if(Input.touchCount > 0 && !done) {
+		if(Input.touchCount > 0 && !hold) {
 		#endif
 			if(idle)
 				idle = false;
@@ -93,11 +94,18 @@ public class PowerMeterController : MonoBehaviour {
 					Debug.LogError("No event listener for Power Meter was added");
 				else {
 					Finished(powerTarget, currentPowerLevel);
-					done = true;
 				}
 			}
 		}
-		
+	}
+
+	public void shouldHold(bool hold) {
+		Debug.Log("hold set to: " + hold);
+		this.hold = hold;
+	}
+
+	public bool holding() {
+		return hold;
 	}
 
 	private void setTargetSpriteAlpha(float a) {
