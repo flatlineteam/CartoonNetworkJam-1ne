@@ -116,4 +116,8 @@ public class BusyStreetLevelController : MonoBehaviour {
         Time.timeScale = 0.0f;
         instance.gameWinPanel.SetActive(true);
     }
+
+    public void LaunchGrandma() {
+        instance.player.LaunchGrandma();
+    }
 }

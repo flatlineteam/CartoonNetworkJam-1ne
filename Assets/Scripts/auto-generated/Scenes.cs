@@ -4,10 +4,11 @@ namespace k
 {
 	public static class Scenes
 	{
-		public const string LEVEL_SELECT_SCENE = "LevelSelectScene";
-		public const string CAT_IN_ATREE_SCENE = "CatInATreeScene";
+		public const string HUB_SCENE = "HubScene";
+		public const string BUSY_STREET_SCENE = "BusyStreetScene";
+		public const string RACING_SCENE = "RacingScene";
 
-		public const int TOTAL_SCENES = 2;
+		public const int TOTAL_SCENES = 3;
 
 
 		public static int nextSceneIndex()
