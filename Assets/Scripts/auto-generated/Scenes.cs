@@ -4,8 +4,9 @@ namespace k
 {
 	public static class Scenes
 	{
+		public const string LEVEL_SELECT_SCENE = "LevelSelectScene";
 
-		public const int TOTAL_SCENES = 0;
+		public const int TOTAL_SCENES = 1;
 
 
 		public static int nextSceneIndex()

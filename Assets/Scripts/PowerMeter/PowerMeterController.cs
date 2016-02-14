@@ -80,7 +80,7 @@ public class PowerMeterController : MonoBehaviour {
 		}
 
 
-		#if UNITY_STANDALONE_WIN || UNITY_EDITOR
+		#if UNITY_STANDALONE_WIN
 		if(Input.GetMouseButtonUp(0) && !done) {
 		#endif
 		#if UNITY_ANDROID

@@ -3,13 +3,11 @@ using System.Collections;
 
 public class HeartController : MonoBehaviour {
 
-	GameObject emptyHeart;
-	GameObject fullHeart;
+	public GameObject emptyHeart;
+	public GameObject fullHeart;
 
 	// Use this for initialization
 	void Start () {
-		emptyHeart = transform.FindChild("EmptyHeart").gameObject;
-		fullHeart = transform.FindChild("FullHeart").gameObject;
 		setFull(true);
 	}
 	
