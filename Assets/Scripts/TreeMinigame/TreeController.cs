@@ -10,6 +10,7 @@ public class TreeController : MonoBehaviour {
 
 	int hpHash = Animator.StringToHash("hp");
 	int attackHash = Animator.StringToHash("TreeAttack");
+	int hitHash = Animator.StringToHash("TreeHitCorrectly");
 
 	public void Start() {
 		anim = GetComponent<Animator>();
@@ -25,13 +26,13 @@ public class TreeController : MonoBehaviour {
 				lastMove = Vector3.zero;
 			}
 		}
-
 	}
 
 	public void hit(int newHP, bool correctly) {
 		anim.SetInteger(hpHash, newHP);
 		if(correctly) {
 			shakeTime = Time.timeSinceLevelLoad + .25f;
+			anim.SetTrigger(hitHash);
 		}
 	}
 

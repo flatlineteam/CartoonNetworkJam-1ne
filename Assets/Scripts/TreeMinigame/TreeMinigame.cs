@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 //I'd just like to say that this code was nice and clean,
@@ -9,6 +10,9 @@ public class TreeMinigame : MonoBehaviour {
 	public TreeController tree;
 	public PowerMeterController powerMeter;
 	public HeartCounter heartCounter;
+	public GameObject winPanel;
+	public Text triesText;
+	public StarCounter starCounter;
 
 	private bool hitCorrectly = false;
 	private int treeHP = 3;
@@ -69,7 +73,14 @@ public class TreeMinigame : MonoBehaviour {
 	}
 
 	private void win() {
-
+		triesText.text = "Tries: " + tries;
+		int stars = 3;
+		if(tries > 3)
+			stars = 2;
+		if(tries > 5)
+			stars = 1;
+		starCounter.setScore(stars);
+		winPanel.SetActive(true);
 	}
 
 	private void lose() {
