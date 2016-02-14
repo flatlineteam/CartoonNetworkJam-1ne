@@ -14,8 +14,8 @@ public class PowerMeterController : MonoBehaviour {
 	public SpriteRenderer targetSprite;
 
 	//the angles that represent the max position for the needle
-	private readonly float left = 55f;
-	private readonly float right = -55f;
+	private readonly float left = 70f;
+	private readonly float right = -70f;
 
 	private bool idle = true;
 	private float currentPowerLevel = 0f;
