@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
 
@@ -17,6 +18,7 @@ public class TreeMinigame : MonoBehaviour {
 	private bool hitCorrectly = false;
 	private int treeHP = 3;
 	private int tries = 0;
+	private bool won = false;
 
 	// Use this for initialization
 	void Start () {
@@ -34,8 +36,11 @@ public class TreeMinigame : MonoBehaviour {
 			else if(treeHP == 1)
 				powerMeter.reset(.9f, .75f);
 			else {
-				win();
-				powerMeter.shouldHold(true);
+				if(!won) {
+					win();
+					won = true;
+					powerMeter.shouldHold(true);
+				}
 			}
 		};
 			
@@ -73,6 +78,7 @@ public class TreeMinigame : MonoBehaviour {
 	}
 
 	private void win() {
+		Debug.Log("whyyyyy");
 		triesText.text = "Tries: " + tries;
 		int stars = 3;
 		if(tries > 3)
@@ -80,10 +86,27 @@ public class TreeMinigame : MonoBehaviour {
 		if(tries > 5)
 			stars = 1;
 		starCounter.setScore(stars);
+
+		int previousScore = GamePreferences.GetTreeGameHighScore();
+		if (stars >= previousScore) { 
+			GamePreferences.SetTreeGameHighScore(stars);
+			//Debug.Log("This is happening");
+		}
+
 		winPanel.SetActive(true);
 	}
 
 	private void lose() {
 
 	}
+
+	public void returnToHub() {
+		SceneManager.LoadScene("HubScene");
+
+	}
+
+	public void replay() {
+		SceneManager.LoadScene("CatInATreeScene");
+	}
+
 }

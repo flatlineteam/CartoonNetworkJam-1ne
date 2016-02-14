@@ -56,4 +56,5 @@ public class GameManager : MonoBehaviour {
     public void SaveRacingScore() {
         GamePreferences.SetRacingGameHighScore(instance.currentGameScore);
     }
+
 }
