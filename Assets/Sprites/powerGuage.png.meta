@@ -1,11 +1,6 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 36521a2f992777c4497a95b35b45b688
-timeCreated: 1455483233
-=======
 guid: 928f7a0f60894974ab54caeab5c45715
-timeCreated: 1455483222
->>>>>>> Small Dialouge for missions.
+timeCreated: 1455489618
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
@@ -35,7 +30,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
