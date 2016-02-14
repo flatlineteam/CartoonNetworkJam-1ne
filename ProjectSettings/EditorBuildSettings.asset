@@ -6,6 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Dylan/LevelSelectScene.unity
+    path: Assets/Scenes/HubScene.unity
   - enabled: 1
-    path: Assets/Scenes/Dylan/CatInATreeScene.unity
+    path: Assets/Scenes/BusyStreetScene.unity
+  - enabled: 1
+    path: Assets/Scenes/RacingScene.unity
