@@ -88,8 +88,9 @@ public class BusyStreetLevelController : MonoBehaviour {
     }
     
     public void GrandmaSquashed() {
-        Time.timeScale = 0.0f;
-        instance.pausePanel.SetActive(true);
+        //Time.timeScale = 0.0f;
+        //instance.pausePanel.SetActive(true);
+        PauseGame();
     }
 
     public void GrandmaMadeIt(Vector3 position) {
