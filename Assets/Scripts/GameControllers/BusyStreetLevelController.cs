@@ -19,6 +19,9 @@ public class BusyStreetLevelController : MonoBehaviour {
     [SerializeField]
     private Text starCount = null;
 
+    [SerializeField]
+    private Button launch = null;
+
     private int consecutiveScores = 0;
     private int score = 0;
 
@@ -67,17 +70,21 @@ public class BusyStreetLevelController : MonoBehaviour {
             //Debug.Log("This is happening");
         }
 
+        Debug.Log("Getting the fuck out...");
+
         SceneManager.LoadScene("HubScene");
     }
 
     private void PauseGame() {
         Time.timeScale = 0.0f;
         instance.pausePanel.SetActive(true);
+        launch.gameObject.SetActive(false);
     }
 
     public void ResumeGame() {
         Time.timeScale = 1.0f;
         instance.pausePanel.SetActive(false);
+        launch.gameObject.SetActive(true);
     }
     
     public void GrandmaSquashed() {
@@ -90,7 +97,6 @@ public class BusyStreetLevelController : MonoBehaviour {
         // Score Points
         GameManager.instance.IncreaseScore();
         instance.SetStarCountText();
-        //Debug.Log(GameManager.instance.CurrentGameScore);
         Instantiate(starPrefab, position, Quaternion.identity);
     }
 
