@@ -70,6 +70,8 @@ public class BusyStreetLevelController : MonoBehaviour {
             //Debug.Log("This is happening");
         }
 
+        Debug.Log("Getting the fuck out...");
+
         SceneManager.LoadScene("HubScene");
     }
 
