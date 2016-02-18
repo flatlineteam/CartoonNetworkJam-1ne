@@ -21,7 +21,6 @@ public class GameManager : MonoBehaviour {
 
     void Awake() {
         MakeSingleton();
-        //GamePreferences.ResetAllScores();
     }
 	
 	// Update is called once per frame
