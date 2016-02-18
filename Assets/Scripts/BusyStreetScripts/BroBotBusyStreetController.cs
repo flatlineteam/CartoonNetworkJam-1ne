@@ -32,7 +32,7 @@ public class BroBotBusyStreetController : MonoBehaviour {
     void Update() {
         if (Input.GetKeyDown(KeyCode.Space)) {
             if (passenger != null) {
-                LaunchGrandma();
+                this.LaunchGrandma();
             }
         }
 
@@ -67,23 +67,23 @@ public class BroBotBusyStreetController : MonoBehaviour {
     }
 
     public void LaunchGrandma() {
-        if (passenger == null) return;
+        if (this.passenger == null) return;
         
-        passenger.transform.SetParent(null);
-        passenger.GetComponent<GrandmaScript>().ThrowGrandma();
-        passenger.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-        passenger = null;
+        this.passenger.transform.SetParent(null);
+        this.passenger.GetComponent<GrandmaScript>().ThrowGrandma();
+        this.passenger.transform.localScale = new Vector3(0.33f, 0.33f, 1.0f);
+        this.passenger = null;
 
     }
 
     private void AssignPassengerToSeat() {
-        passenger.transform.SetParent(seat.transform);
-        passenger.transform.position = seat.transform.position;
-        passenger.gameObject.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+        this.passenger.transform.SetParent(seat.transform);
+        this.passenger.transform.position = seat.transform.position;
+        this.passenger.gameObject.transform.localScale = new Vector3(0.33f, 0.33f, 1.0f);
     }
 
     public void GetNewPassenger(Rigidbody2D pass) {
-        passenger = pass;
+        this.passenger = pass;
         AssignPassengerToSeat();
     }
 }

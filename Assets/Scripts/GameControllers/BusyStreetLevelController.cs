@@ -20,13 +20,16 @@ public class BusyStreetLevelController : MonoBehaviour {
     private Text starCount = null;
 
     [SerializeField]
-    private Button launch = null;
+    private Button launchButton = null;
 
     private int consecutiveScores = 0;
     private int score = 0;
 
     private float yTopBound = 7.5f;
     private float yBottomBound = -4.5f;
+
+    [SerializeField]
+    private GameObject[] cars = new GameObject[0];
 
     public float YTopBound {
         get { return yTopBound; }
@@ -40,6 +43,8 @@ public class BusyStreetLevelController : MonoBehaviour {
     void Start() {
         MakeInstance();
         Time.timeScale = 1.0f;
+
+        //instance.SpawnNewGrandma();
     }
 
     // Update is called once per frame
@@ -63,14 +68,10 @@ public class BusyStreetLevelController : MonoBehaviour {
     }
 
     public void GoToHub() {
-       // Debug.Log("My Score : " + GameManager.instance.CurrentGameScore + " XXX Current High Score : " + GamePreferences.GetBusyStreetHighScore());
         int previousScore = GamePreferences.GetBusyStreetHighScore();
         if (GameManager.instance.CurrentGameScore >= previousScore) { 
             GameManager.instance.SaveGrandmaTossScore();
-            //Debug.Log("This is happening");
         }
-
-        Debug.Log("Getting the fuck out...");
 
         SceneManager.LoadScene("HubScene");
     }
@@ -78,13 +79,13 @@ public class BusyStreetLevelController : MonoBehaviour {
     private void PauseGame() {
         Time.timeScale = 0.0f;
         instance.pausePanel.SetActive(true);
-        launch.gameObject.SetActive(false);
+        launchButton.gameObject.SetActive(false);
     }
 
     public void ResumeGame() {
         Time.timeScale = 1.0f;
         instance.pausePanel.SetActive(false);
-        launch.gameObject.SetActive(true);
+        launchButton.gameObject.SetActive(true);
     }
     
     public void GrandmaSquashed() {
@@ -103,12 +104,16 @@ public class BusyStreetLevelController : MonoBehaviour {
 
     // Spawn new Grandma
     private void SpawnNewGrandma() {
+        // Do random Range
+        // Get a distance from the player before placing
+        // Is the distance sufficient from the player?
+            // If not adjust
         GameObject newGrandma = Instantiate(instance.grandmaPrefab, 
                                             new Vector3(player.transform.position.x,
                                                         Random.Range(instance.YBottomBound + 0.75f, instance.YTopBound - 0.75f),
                                                         0.0f),
                                             Quaternion.identity) as GameObject;
-        newGrandma.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+        newGrandma.transform.localScale = new Vector3(0.33f, 0.33f, 0.33f);
     }
 
     public void PickUpGrandma(GameObject grandma) {
@@ -120,6 +125,7 @@ public class BusyStreetLevelController : MonoBehaviour {
     }
 
     public void ShowWinScreen() {
+        launchButton.gameObject.SetActive(false);
         Time.timeScale = 0.0f;
         instance.gameWinPanel.SetActive(true);
     }

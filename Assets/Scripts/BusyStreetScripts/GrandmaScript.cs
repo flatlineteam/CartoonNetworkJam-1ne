@@ -7,6 +7,9 @@ public class GrandmaScript : MonoBehaviour {
 
     private float speed = 11.5f;
 
+    [SerializeField]
+    private Sprite grandmaIdle = null, grandmaToss = null;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -27,7 +30,7 @@ public class GrandmaScript : MonoBehaviour {
         }
         if(coll.gameObject.layer == 10) {
             this.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-            this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll; //RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezeAll;
+            //this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll; //RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezeAll;
             this.isBeingThrown = false;
             BusyStreetLevelController.instance.GrandmaMadeIt(this.transform.position);
             this.gameObject.SetActive(false);
@@ -36,7 +39,7 @@ public class GrandmaScript : MonoBehaviour {
         if(coll.gameObject.layer == 11) {
             Debug.Log("Grandma Squashed!!");
             this.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-            this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll; //RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezeAll;
+            //this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll; //RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezeAll;
             this.isBeingThrown = false;
             BusyStreetLevelController.instance.GrandmaSquashed();
             BusyStreetLevelController.instance.ResetGrandma(this.gameObject);
