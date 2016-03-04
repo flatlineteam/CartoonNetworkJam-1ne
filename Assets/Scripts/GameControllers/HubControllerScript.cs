@@ -67,7 +67,7 @@ public class HubControllerScript : MonoBehaviour {
     }
 
     public void ShowKOLevel() {
-        //instance.ShowKOLevelStars();
+        instance.ShowKOLevelStars();
         instance.koLevel.SetActive(true);
         instance.ShowKOLevelStars();
     }
@@ -129,12 +129,10 @@ public class HubControllerScript : MonoBehaviour {
     }
 
     private void MovePlayerRight() {
-        Debug.Log("This is happening (right)");
         player.GetComponent<RoBroScript>().SetMovement(true);
     }
 
     private void MovePlayerLeft() {
-        Debug.Log("This is happening (left)");
         player.GetComponent<RoBroScript>().SetMovement(false);
     }
 

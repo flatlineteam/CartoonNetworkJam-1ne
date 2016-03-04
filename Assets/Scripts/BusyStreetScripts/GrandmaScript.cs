@@ -10,6 +10,9 @@ public class GrandmaScript : MonoBehaviour {
     [SerializeField]
     private Sprite grandmaIdle = null, grandmaToss = null;
 
+    [SerializeField]
+    private SpriteRenderer myRenderer = null;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -50,5 +53,6 @@ public class GrandmaScript : MonoBehaviour {
 
     public void ThrowGrandma() {
         this.isBeingThrown = true;
+        this.myRenderer.sprite = grandmaToss;
     }
 }

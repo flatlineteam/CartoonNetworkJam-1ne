@@ -22,8 +22,8 @@ public class BusyStreetLevelController : MonoBehaviour {
     [SerializeField]
     private Button launchButton = null;
 
-    private int consecutiveScores = 0;
-    private int score = 0;
+    //private int consecutiveScores = 0;
+    //private int score = 0;
 
     private float yTopBound = 7.5f;
     private float yBottomBound = -4.5f;

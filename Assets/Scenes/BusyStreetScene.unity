@@ -2429,9 +2429,22 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 5570c05b5ef21d14cac95c02b058283b,
         type: 3}
+    - target: {fileID: 11468144, guid: 06b80b791cc9ab847b1917789f1b9c56, type: 2}
+      propertyPath: myRenderer
+      value: 
+      objectReference: {fileID: 1528554954}
+    - target: {fileID: 21295408, guid: 06b80b791cc9ab847b1917789f1b9c56, type: 2}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 06b80b791cc9ab847b1917789f1b9c56, type: 2}
   m_IsPrefabParent: 0
+--- !u!212 &1528554954 stripped
+SpriteRenderer:
+  m_PrefabParentObject: {fileID: 21295408, guid: 06b80b791cc9ab847b1917789f1b9c56,
+    type: 2}
+  m_PrefabInternal: {fileID: 1528554953}
 --- !u!1 &1553690155
 GameObject:
   m_ObjectHideFlags: 0
