@@ -75,7 +75,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grandmaIdle: {fileID: 21300000, guid: 5570c05b5ef21d14cac95c02b058283b, type: 3}
   grandmaToss: {fileID: 21300000, guid: 4f9bb03620a881e40aeedd77bea6f3e3, type: 3}
-  myRenderer: {fileID: 21295408}
 --- !u!212 &21295408
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -101,7 +100,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5570c05b5ef21d14cac95c02b058283b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
