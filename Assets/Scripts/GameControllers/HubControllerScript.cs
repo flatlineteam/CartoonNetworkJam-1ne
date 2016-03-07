@@ -17,7 +17,10 @@ public class HubControllerScript : MonoBehaviour {
     private GameObject radiclesLevel = null, enidLevel = null, koLevel = null;
 
     [SerializeField]
-    private GameObject[] grandmaTossStarts = new GameObject[0];
+    private GameObject[] grandmaTossStars = new GameObject[0];
+
+    [SerializeField]
+    private GameObject garRightImage = null, garLeftImage = null;
 
     [SerializeField]
     private Button right = null, left = null;
@@ -80,7 +83,15 @@ public class HubControllerScript : MonoBehaviour {
 
     public void FlipPlayer() {
         player.GetComponent<RoBroScript>().FlipMe();
+
         instance.SwapButtonControls();
+
+        if (right.gameObject.activeSelf == true)
+            StartCoroutine(HubControllerScript.instance.DeactivateAfterDelay(garLeftImage));
+        else
+            StartCoroutine(HubControllerScript.instance.DeactivateAfterDelay(garRightImage));
+
+        //instance.SwapButtonControls();
     }
 
     private void SwapButtonControls() {
@@ -97,7 +108,7 @@ public class HubControllerScript : MonoBehaviour {
     }
 
     private void ShowKOLevelStars() {
-        foreach (GameObject go in instance.grandmaTossStarts) {
+        foreach (GameObject go in instance.grandmaTossStars) {
             go.SetActive(false);
         }
         int highScore = GamePreferences.GetBusyStreetHighScore();
@@ -105,7 +116,7 @@ public class HubControllerScript : MonoBehaviour {
         if (highScore > 3) highScore = 3;
         if (highScore < 0) highScore = 0;
         for (int n = 0; n < highScore; ++n) {
-            instance.grandmaTossStarts[n].SetActive(true);
+            instance.grandmaTossStars[n].SetActive(true);
         }
     }
 
@@ -138,5 +149,11 @@ public class HubControllerScript : MonoBehaviour {
 
     public void StopPlayer() {
         player.GetComponent<RoBroScript>().GoToIdle();
+    }
+
+    IEnumerator DeactivateAfterDelay(GameObject obj) {
+        obj.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        obj.gameObject.SetActive(false);
     }
 }
