@@ -22,6 +22,11 @@ public class BusyStreetLevelController : MonoBehaviour {
     [SerializeField]
     private Button launchButton = null;
 
+    private bool isPaused = false;
+    public bool IsPaused {
+        get { return isPaused; }
+    }
+
     //private int consecutiveScores = 0;
     //private int score = 0;
 
@@ -78,12 +83,14 @@ public class BusyStreetLevelController : MonoBehaviour {
 
     private void PauseGame() {
         Time.timeScale = 0.0f;
+        isPaused = true;
         instance.pausePanel.SetActive(true);
         launchButton.gameObject.SetActive(false);
     }
 
     public void ResumeGame() {
         Time.timeScale = 1.0f;
+        isPaused = false;
         instance.pausePanel.SetActive(false);
         launchButton.gameObject.SetActive(true);
     }

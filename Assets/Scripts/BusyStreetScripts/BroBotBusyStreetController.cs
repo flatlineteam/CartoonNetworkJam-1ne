@@ -30,6 +30,8 @@ public class BroBotBusyStreetController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (BusyStreetLevelController.instance.IsPaused == true) return;
+
         if (Input.GetKeyDown(KeyCode.Space)) {
             if (passenger != null) {
                 this.LaunchGrandma();
