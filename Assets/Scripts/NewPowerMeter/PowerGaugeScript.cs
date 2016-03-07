@@ -58,7 +58,7 @@ public class PowerGaugeScript : MonoBehaviour {
             float range = Mathf.Abs(MAX_ANGLE) + Mathf.Abs(MIN_ANGLE);
             //float percentage = (0.1f * Time.deltaTime);
             currentPower += (0.5f * Time.deltaTime);
-            Debug.Log("Needle Increasing : " + currentPower);
+            //Debug.Log("Needle Increasing : " + currentPower);
             this.needle.transform.localRotation = GetAnglePercentage(range, currentPower);
             if (currentPower > 0.99f) needleIncreasing = false;
         }
@@ -66,7 +66,7 @@ public class PowerGaugeScript : MonoBehaviour {
             float range = Mathf.Abs(MAX_ANGLE) + Mathf.Abs(MIN_ANGLE);
             //float percentage = (0.1f * Time.deltaTime);
             currentPower -= (0.5f * Time.deltaTime);
-            Debug.Log("Needle Decreasing : " + currentPower);
+            //Debug.Log("Needle Decreasing : " + currentPower);
             this.needle.transform.localRotation = GetAnglePercentage(range, currentPower);
             if (currentPower < 0.02f) needleIncreasing = true;
         }

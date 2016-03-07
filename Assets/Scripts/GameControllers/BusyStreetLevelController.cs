@@ -204,6 +204,28 @@ public class BusyStreetLevelController : MonoBehaviour {
     }
 
     public void LaunchGrandma() {
-        instance.player.LaunchGrandma();
+        //instance.player.LaunchGrandma();
+
+        //if (BusyStreetLevelController.instance.IsPaused == true) return;
+
+        //if (Input.GetKeyDown(KeyCode.Space)) {
+        if (instance.powerGaugeScript.GaugeActive == false) {
+            //BusyStreetLevelController.instance.ActivatePowerGauge();
+            instance.powerGaugeScript.ActivateGauge();
+            Debug.Log("Activating Gauge");
+        }
+        else /*if (instance.powerGaugeScript.GaugeActive == true)*/ {
+            //BusyStreetLevelController.instance.StopPowerGauge();
+            instance.powerGaugeScript.StopGauge();
+            Debug.Log("Stoping Gauge");
+            //if (passenger != null) {
+            //this.LaunchGrandma();
+            instance.player.LaunchGrandma();
+            //}
+        }
+            //if (passenger != null && BusyStreetLevelController.instance.GetPowerGaugeReadyToFire() == true) {
+            //    this.LaunchGrandma();
+            //}
+        //}
     }
 }

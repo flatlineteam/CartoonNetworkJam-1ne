@@ -38,9 +38,9 @@ public class BroBotBusyStreetController : MonoBehaviour {
             }
             else if (BusyStreetLevelController.instance.GetPowerGaugeActive() == true) {
                 BusyStreetLevelController.instance.StopPowerGauge();
-                if(passenger != null) {
-                    this.LaunchGrandma();
-                }
+                //if(passenger != null) {
+                this.LaunchGrandma();
+                //}
             }
             //if (passenger != null && BusyStreetLevelController.instance.GetPowerGaugeReadyToFire() == true) {
             //    this.LaunchGrandma();
