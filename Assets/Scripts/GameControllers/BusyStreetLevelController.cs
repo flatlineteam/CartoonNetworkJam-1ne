@@ -14,6 +14,9 @@ public class BusyStreetLevelController : MonoBehaviour {
     private GameObject grandmaPrefab = null, starPrefab = null;
 
     [SerializeField]
+    private Transform grandmaSpawner = null;
+
+    [SerializeField]
     private BroBotBusyStreetController player = null;
 
     [SerializeField]
@@ -122,6 +125,7 @@ public class BusyStreetLevelController : MonoBehaviour {
         //Time.timeScale = 0.0f;
         //instance.pausePanel.SetActive(true);
         PauseGame();
+        SpawnNewGrandma();
     }
 
     public void GrandmaMadeIt(Vector3 position) {
@@ -139,11 +143,12 @@ public class BusyStreetLevelController : MonoBehaviour {
         // Is the distance sufficient from the player?
             // If not adjust
         GameObject newGrandma = Instantiate(instance.grandmaPrefab, 
-                                            new Vector3(player.transform.position.x,
-                                                        Random.Range(instance.YBottomBound + 0.75f, instance.YTopBound - 0.75f),
-                                                        0.0f),
+                                            grandmaSpawner.position,
+                                            //new Vector3(player.transform.position.x,
+                                            //            Random.Range(instance.YBottomBound + 0.75f, instance.YTopBound - 0.75f),
+                                            //            0.0f),
                                             Quaternion.identity) as GameObject;
-        newGrandma.transform.localScale = new Vector3(0.33f, 0.33f, 0.33f);
+        newGrandma.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
         instance.isHoldingGrandma = false;
     }
 

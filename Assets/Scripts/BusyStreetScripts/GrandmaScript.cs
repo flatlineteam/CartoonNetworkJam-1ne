@@ -48,7 +48,8 @@ public class GrandmaScript : MonoBehaviour {
             this.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             this.isBeingThrown = false;
             BusyStreetLevelController.instance.GrandmaSquashed();
-            BusyStreetLevelController.instance.ResetGrandma(this.gameObject);
+            //BusyStreetLevelController.instance.ResetGrandma(this.gameObject);
+            Destroy(this.gameObject);
         }
     }
 

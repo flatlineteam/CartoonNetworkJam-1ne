@@ -318,6 +318,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
+--- !u!1 &215078355
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 215078356}
+  m_Layer: 0
+  m_Name: GrandmaSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &215078356
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 215078355}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -14.96, y: 11.6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
 --- !u!1 &293811577
 GameObject:
   m_ObjectHideFlags: 0
@@ -3043,6 +3070,7 @@ MonoBehaviour:
   gameWinPanel: {fileID: 1730531693}
   grandmaPrefab: {fileID: 102750, guid: 06b80b791cc9ab847b1917789f1b9c56, type: 2}
   starPrefab: {fileID: 160322, guid: b9bffa47ca4192d4b892160013b42633, type: 2}
+  grandmaSpawner: {fileID: 215078356}
   player: {fileID: 2130487900}
   starCount: {fileID: 1325624473}
   launchButton: {fileID: 903390788}
