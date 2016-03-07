@@ -76,6 +76,7 @@ public class BroBotBusyStreetController : MonoBehaviour {
         this.passenger.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
         this.passenger = null;
 
+        GrandmaTossSFXControllerScript.instance.PlayGrandmaTossSFX();
     }
 
     private void AssignPassengerToSeat() {

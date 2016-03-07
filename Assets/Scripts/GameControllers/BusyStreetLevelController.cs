@@ -70,6 +70,7 @@ public class BusyStreetLevelController : MonoBehaviour {
 
         if(GameManager.instance.CurrentGameScore >= 3) {
             ShowWinScreen();
+            return;
         }
 
         if(isHoldingGrandma == false) {
@@ -124,11 +125,13 @@ public class BusyStreetLevelController : MonoBehaviour {
     public void GrandmaSquashed() {
         //Time.timeScale = 0.0f;
         //instance.pausePanel.SetActive(true);
+        GrandmaTossSFXControllerScript.instance.PlayGrandmaSplatSFX();
         PauseGame();
         SpawnNewGrandma();
     }
 
     public void GrandmaMadeIt(Vector3 position) {
+        GrandmaTossSFXControllerScript.instance.PlayGrandmaSuccessSFX();
         SpawnNewGrandma();
         // Score Points
         GameManager.instance.IncreaseScore();
@@ -138,15 +141,8 @@ public class BusyStreetLevelController : MonoBehaviour {
 
     // Spawn new Grandma
     private void SpawnNewGrandma() {
-        // Do random Range
-        // Get a distance from the player before placing
-        // Is the distance sufficient from the player?
-            // If not adjust
         GameObject newGrandma = Instantiate(instance.grandmaPrefab, 
                                             grandmaSpawner.position,
-                                            //new Vector3(player.transform.position.x,
-                                            //            Random.Range(instance.YBottomBound + 0.75f, instance.YTopBound - 0.75f),
-                                            //            0.0f),
                                             Quaternion.identity) as GameObject;
         newGrandma.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
         instance.isHoldingGrandma = false;

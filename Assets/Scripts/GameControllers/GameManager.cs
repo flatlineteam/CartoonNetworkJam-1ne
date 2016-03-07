@@ -5,6 +5,9 @@ public class GameManager : MonoBehaviour {
 
     static public GameManager instance = null;
 
+    [SerializeField]
+    private AudioSource gameMusic = null, robotMove = null, robotSparks = null;
+
     private int currentGameScore = 0;
     public int CurrentGameScore {
         get { return currentGameScore; }
@@ -24,9 +27,9 @@ public class GameManager : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	//void Update () {
         
-	}
+	//}
 
     public void MakeSingleton() {
         if (instance == null) {
@@ -56,4 +59,21 @@ public class GameManager : MonoBehaviour {
         GamePreferences.SetRacingGameHighScore(instance.currentGameScore);
     }
 
+    public void PlaySparkSFX() {
+        GameManager.instance.robotSparks.Play();
+    }
+
+    public void PlayRobotMoveSound() {
+        if(GameManager.instance.robotMove.isPlaying == false)
+            GameManager.instance.robotMove.Play();
+    }
+
+    public void StopRobotMoveSound() {
+        //if(GameManager.instance.robotMove.isPlaying == true)
+        GameManager.instance.robotMove.Stop();
+    }
+
+    public void PlaySFX(AudioClip sfx) {
+        GameManager.instance.gameMusic.PlayOneShot(sfx);
+    }
 }
