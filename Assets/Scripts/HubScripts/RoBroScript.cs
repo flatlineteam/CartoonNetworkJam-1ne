@@ -88,6 +88,7 @@ public class RoBroScript : MonoBehaviour {
 
             if (Input.GetKeyUp(KeyCode.D)) {
                 myAnim.SetInteger("jethroState", IDLE);
+                GameManager.instance.StopRobotMoveSound();
             }
         }
         else if (playerFlipped == true) {

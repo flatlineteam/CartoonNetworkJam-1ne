@@ -14,7 +14,7 @@ public class GainStarScript : MonoBehaviour {
         //newPos.x = this.GetComponentInParent<Transform>().position.x;
         //this.transform.position = newPos;
         Vector3 newPos = this.transform.position;
-        newPos.y += 1.0f * Time.fixedDeltaTime;
+        newPos.y += 1.0f * Time.deltaTime;
         newPos.x = this.GetComponentInParent<Transform>().position.x;
         this.transform.position = newPos;
     }

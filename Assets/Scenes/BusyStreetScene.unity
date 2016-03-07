@@ -752,7 +752,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carPrefab: {fileID: 123112, guid: e25077fc3745b3f488ce68500c2f0b3b, type: 2}
-  laneSpeed: 2.75
+  laneSpeed: 3.75
 --- !u!1001 &574005732
 Prefab:
   m_ObjectHideFlags: 0
@@ -3118,6 +3118,7 @@ MonoBehaviour:
   launchButton: {fileID: 903390788}
   bg1: {fileID: 108991590}
   bg2: {fileID: 1710712169}
+  speedAdjustmentBase: 2
   cars:
   - {fileID: 0}
   - {fileID: 0}
@@ -3240,7 +3241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carPrefab: {fileID: 123112, guid: e25077fc3745b3f488ce68500c2f0b3b, type: 2}
-  laneSpeed: 4.75
+  laneSpeed: 3.25
 --- !u!61 &1914559585
 BoxCollider2D:
   m_ObjectHideFlags: 0

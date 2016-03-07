@@ -28,6 +28,14 @@ public class BusyStreetLevelController : MonoBehaviour {
     [SerializeField]
     private GameObject bg1 = null, bg2 = null;
 
+    [SerializeField]
+    private float speedAdjustmentBase = 1.0f;
+
+    private float speedAdjustment = 1.0f;
+    public float SpeedAdjustment {
+        get { return speedAdjustment; }
+    }
+
     private bool isPaused = false;
     public bool IsPaused {
         get { return isPaused; }
@@ -56,7 +64,7 @@ public class BusyStreetLevelController : MonoBehaviour {
     void Start() {
         MakeInstance();
         Time.timeScale = 1.0f;
-
+        speedAdjustment = speedAdjustmentBase;
         //instance.SpawnNewGrandma();
     }
 
@@ -74,8 +82,13 @@ public class BusyStreetLevelController : MonoBehaviour {
         }
 
         if(isHoldingGrandma == false) {
+            GameManager.instance.PlayRobotMoveSound();
             MoveBackground(bg1);
             MoveBackground(bg2);
+            speedAdjustment = speedAdjustmentBase;
+        }
+        else {
+            speedAdjustment = 1.0f;
         }
     }
 
@@ -86,9 +99,10 @@ public class BusyStreetLevelController : MonoBehaviour {
 
     private void MoveBackground(GameObject bg) {
         float tempY = bg.transform.position.y;
-        tempY -= 1.0f * Time.fixedDeltaTime;
+        //tempY -= 1.0f * Time.fixedDeltaTime;
+        tempY -= BusyStreetLevelController.instance.SpeedAdjustment * Time.deltaTime;
 
-        if(tempY < -21.95f) {
+        if (tempY < -21.95f) {
             tempY = 21.95f;
         }
 
@@ -150,6 +164,7 @@ public class BusyStreetLevelController : MonoBehaviour {
 
     public void PickUpGrandma(GameObject grandma) {
         instance.isHoldingGrandma = true;
+        GameManager.instance.StopRobotMoveSound();
         player.GetNewPassenger(grandma.GetComponent<Rigidbody2D>());
     }
 

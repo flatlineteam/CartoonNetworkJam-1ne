@@ -60,7 +60,8 @@ public class GrandmaScript : MonoBehaviour {
 
     private void MoveGrandma() {
         float tempY = this.transform.position.y;
-        tempY -= 1.0f * Time.fixedDeltaTime;
+        //tempY -= 1.0f * Time.deltaTime;
+        tempY -= BusyStreetLevelController.instance.SpeedAdjustment * Time.deltaTime;
 
         if (tempY < -21.95f) {
             tempY = 21.95f;
