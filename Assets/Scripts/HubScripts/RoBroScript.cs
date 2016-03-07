@@ -37,11 +37,14 @@ public class RoBroScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (HubControllerScript.instance.IsPaused == true) return;
         if(moveRight == true) {
             MovePlayerRight();
+            //GameManager.instance.PlayRobotMoveSound();
         }
         else if (moveLeft == true) {
             MovePlayerLeft();
+            //GameManager.instance.PlayRobotMoveSound();
         }
         else { 
             this.HandleMovement();
@@ -86,6 +89,7 @@ public class RoBroScript : MonoBehaviour {
 
             if (Input.GetKeyUp(KeyCode.D)) {
                 myAnim.SetInteger("jethroState", IDLE);
+                GameManager.instance.StopRobotMoveSound();
             }
         }
         else if (playerFlipped == true) {
@@ -100,6 +104,7 @@ public class RoBroScript : MonoBehaviour {
 
             if (Input.GetKeyUp(KeyCode.A)) {
                 myAnim.SetInteger("jethroState", IDLE);
+                GameManager.instance.StopRobotMoveSound();
             }
         }
 
@@ -140,6 +145,7 @@ public class RoBroScript : MonoBehaviour {
     private void HandleSparks() {
         sparkCountDown -= Time.deltaTime;
         if (sparkCountDown <= 0.0f) {
+            GameManager.instance.PlaySparkSFX();
             GameObject go = Instantiate(sparks) as GameObject;
             go.transform.SetParent(sparkStart.transform, false);
             sparkCountDown = maxSparkCountDown;
@@ -149,6 +155,8 @@ public class RoBroScript : MonoBehaviour {
     private void MovePlayerRight() {
         myAnim.SetInteger("jethroState", FORWARD);
 
+        GameManager.instance.PlayRobotMoveSound();
+
         this.transform.position = new Vector3(this.transform.position.x + Time.deltaTime * speed,
                                               this.transform.position.y,
                                               -10.0f);
@@ -156,6 +164,8 @@ public class RoBroScript : MonoBehaviour {
 
     private void MovePlayerLeft() {
         myAnim.SetInteger("jethroState", FORWARD);
+
+        GameManager.instance.PlayRobotMoveSound();
 
         this.transform.position = new Vector3(this.transform.position.x - Time.deltaTime * speed,
                                               this.transform.position.y,
@@ -170,6 +180,7 @@ public class RoBroScript : MonoBehaviour {
     public void GoToIdle() {
         this.moveRight = false;
         this.moveLeft = false;
+        GameManager.instance.StopRobotMoveSound();
         myAnim.SetInteger("jethroState", IDLE);
     }
 }
