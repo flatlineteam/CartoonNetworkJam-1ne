@@ -40,32 +40,32 @@ public class BroBotBusyStreetController : MonoBehaviour {
 
         if (passenger != null) return;
         
-        this.transform.position += myDirection * Time.deltaTime * speed;
+        //this.transform.position += myDirection * Time.deltaTime * speed;
 
-        // Check y position to make sure we don't go backwards off of the screen
-        if (this.transform.position.y < BusyStreetLevelController.instance.YBottomBound) {
-            Vector3 newPos = new Vector3(this.transform.position.x,
-                                         BusyStreetLevelController.instance.YBottomBound,
-                                         0.0f);
+        //// Check y position to make sure we don't go backwards off of the screen
+        //if (this.transform.position.y < BusyStreetLevelController.instance.YBottomBound) {
+        //    Vector3 newPos = new Vector3(this.transform.position.x,
+        //                                 BusyStreetLevelController.instance.YBottomBound,
+        //                                 0.0f);
 
-            this.transform.position = newPos;
+        //    this.transform.position = newPos;
 
-            Vector3 temp = this.transform.localScale;
-            temp.y *= -1;
-            this.transform.localScale = temp;
-            myDirection = Vector3.up;
-        }
-        else if (this.transform.position.y > BusyStreetLevelController.instance.YTopBound) {
-            Vector3 newPos = new Vector3(this.transform.position.x,
-                                         BusyStreetLevelController.instance.YTopBound,
-                                         0.0f);
+        //    Vector3 temp = this.transform.localScale;
+        //    temp.y *= -1;
+        //    this.transform.localScale = temp;
+        //    myDirection = Vector3.up;
+        //}
+        //else if (this.transform.position.y > BusyStreetLevelController.instance.YTopBound) {
+        //    Vector3 newPos = new Vector3(this.transform.position.x,
+        //                                 BusyStreetLevelController.instance.YTopBound,
+        //                                 0.0f);
 
-            this.transform.position = newPos;
-            Vector3 temp = this.transform.localScale;
-            temp.y *= -1;
-            this.transform.localScale = temp;
-            myDirection = Vector3.down;
-        }
+        //    this.transform.position = newPos;
+        //    Vector3 temp = this.transform.localScale;
+        //    temp.y *= -1;
+        //    this.transform.localScale = temp;
+        //    myDirection = Vector3.down;
+        //}
     }
 
     public void LaunchGrandma() {

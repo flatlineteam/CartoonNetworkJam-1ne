@@ -22,6 +22,9 @@ public class BusyStreetLevelController : MonoBehaviour {
     [SerializeField]
     private Button launchButton = null;
 
+    [SerializeField]
+    private GameObject bg1 = null, bg2 = null;
+
     private bool isPaused = false;
     public bool IsPaused {
         get { return isPaused; }
@@ -32,6 +35,8 @@ public class BusyStreetLevelController : MonoBehaviour {
 
     private float yTopBound = 7.5f;
     private float yBottomBound = -4.5f;
+
+    private bool isHoldingGrandma = false;
 
     [SerializeField]
     private GameObject[] cars = new GameObject[0];
@@ -54,6 +59,8 @@ public class BusyStreetLevelController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (isPaused == true) return;
+
         if(Input.GetKeyDown(KeyCode.Escape)) {
             PauseGame();
         }
@@ -61,11 +68,27 @@ public class BusyStreetLevelController : MonoBehaviour {
         if(GameManager.instance.CurrentGameScore >= 3) {
             ShowWinScreen();
         }
+
+        if(isHoldingGrandma == false) {
+            MoveBackground(bg1);
+            MoveBackground(bg2);
+        }
     }
 
     public void MakeInstance() {
         if (instance == null)
             instance = this;
+    }
+
+    private void MoveBackground(GameObject bg) {
+        float tempY = bg.transform.position.y;
+        tempY -= 1.0f * Time.fixedDeltaTime;
+
+        if(tempY < -21.95f) {
+            tempY = 21.95f;
+        }
+
+        bg.transform.position = new Vector3(bg.transform.position.x, tempY, bg.transform.position.z);
     }
 
     public void SetStarCountText() {
@@ -121,13 +144,16 @@ public class BusyStreetLevelController : MonoBehaviour {
                                                         0.0f),
                                             Quaternion.identity) as GameObject;
         newGrandma.transform.localScale = new Vector3(0.33f, 0.33f, 0.33f);
+        instance.isHoldingGrandma = false;
     }
 
     public void PickUpGrandma(GameObject grandma) {
+        instance.isHoldingGrandma = true;
         player.GetNewPassenger(grandma.GetComponent<Rigidbody2D>());
     }
 
     public void ResetGrandma(GameObject grandma) {
+        instance.isHoldingGrandma = false;
         player.GetNewPassenger(grandma.GetComponent<Rigidbody2D>());
     }
 

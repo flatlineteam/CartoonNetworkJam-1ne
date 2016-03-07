@@ -3,7 +3,7 @@ using System.Collections;
 
 public class GrandmaScript : MonoBehaviour {
 
-    private bool isBeingThrown = false;
+    private bool isBeingThrown = false, isWaiting = true;
 
     private float speed = 11.5f;
 
@@ -13,13 +13,19 @@ public class GrandmaScript : MonoBehaviour {
     [SerializeField]
     private SpriteRenderer myRenderer = null;
 
-	// Use this for initialization
-	//void Start () {
-	
-	//}
-	
-	// Update is called once per frame
-	void Update () {
+    // Use this for initialization
+    //void Start () {
+
+    //}
+
+    // Update is called once per frame
+    void Update() {
+
+        if (BusyStreetLevelController.instance.IsPaused == true) return;
+
+        if (isWaiting == true) {
+            MoveGrandma();
+        }
         if (isBeingThrown == true) {
             this.transform.position += Vector3.right * Time.deltaTime * speed;
             this.transform.Rotate(Vector3.forward, -25.0f);
@@ -28,6 +34,7 @@ public class GrandmaScript : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D coll) {
         if(coll.gameObject.layer == 8) {
+            this.isWaiting = false;
             BusyStreetLevelController.instance.PickUpGrandma(this.gameObject);
         }
         if(coll.gameObject.layer == 10) {
@@ -48,5 +55,16 @@ public class GrandmaScript : MonoBehaviour {
     public void ThrowGrandma() {
         this.isBeingThrown = true;
         this.myRenderer.sprite = grandmaToss;
+    }
+
+    private void MoveGrandma() {
+        float tempY = this.transform.position.y;
+        tempY -= 1.0f * Time.fixedDeltaTime;
+
+        if (tempY < -21.95f) {
+            tempY = 21.95f;
+        }
+
+        this.transform.position = new Vector3(this.transform.position.x, tempY, this.transform.position.z);
     }
 }
