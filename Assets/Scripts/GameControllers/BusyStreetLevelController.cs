@@ -151,6 +151,7 @@ public class BusyStreetLevelController : MonoBehaviour {
         isPaused = true;
         instance.pausePanel.SetActive(true);
         launchButton.gameObject.SetActive(false);
+        GameManager.instance.MuteMoveSound(true);
     }
 
     public void ResumeGame() {
@@ -158,6 +159,7 @@ public class BusyStreetLevelController : MonoBehaviour {
         isPaused = false;
         instance.pausePanel.SetActive(false);
         launchButton.gameObject.SetActive(true);
+        GameManager.instance.MuteMoveSound(false);
     }
     
     public void GrandmaSquashed() {

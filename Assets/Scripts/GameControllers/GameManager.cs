@@ -76,4 +76,8 @@ public class GameManager : MonoBehaviour {
     public void PlaySFX(AudioClip sfx) {
         GameManager.instance.gameMusic.PlayOneShot(sfx);
     }
+
+    public void MuteMoveSound(bool value) {
+        GameManager.instance.robotMove.mute = value;
+    }
 }
