@@ -183,7 +183,7 @@ RectTransform:
   m_GameObject: {fileID: 70802250}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1, y: 1, z: 1}
   m_Children:
   - {fileID: 939161793}
   m_Father: {fileID: 675768385}
@@ -604,7 +604,7 @@ RectTransform:
   m_GameObject: {fileID: 320797594}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.8, z: 1}
+  m_LocalScale: {x: 0.8695651, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 1308196288}
   m_RootOrder: 0
@@ -645,8 +645,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Hey Ro-Bro!  I'm not quite ready and still building my race track, but you
-    are welcome test it out for me!
+  m_Text: Hey Ro-Bro!  Come back soon and I will have a task for you to complete and
+    prove you are a true hero!
 --- !u!222 &320797597
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -905,7 +905,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &464157978
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1026,7 +1026,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &473984076
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1263,7 +1263,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &628658305
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2194,13 +2194,13 @@ RectTransform:
   m_GameObject: {fileID: 939161792}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9090909, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 70802251}
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000059604645, y: 0.0000038146973}
+  m_AnchoredPosition: {x: -0.00000047683716, y: 0.00001335144}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &939161794
@@ -2235,7 +2235,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Lion Cat needs our help!  Can you be the hero to save the day?
+  m_Text: I'll have a heroic task for you to complete just as soon as I find Lion
+    Cat...
 --- !u!222 &939161795
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2663,7 +2664,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1200315505
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3127,7 +3128,7 @@ RectTransform:
   m_GameObject: {fileID: 1308196287}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1.2499999, z: 1}
+  m_LocalScale: {x: 1.1500001, y: 1.2499999, z: 1}
   m_Children:
   - {fileID: 320797595}
   m_Father: {fileID: 1495104943}

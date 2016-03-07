@@ -49,7 +49,7 @@ public class PowerMeterController : MonoBehaviour {
 		needleIncreasing = true;
 		hold = false;
 
-		target.localRotation = getRotationFromPercentage(powerTarget);
+		//target.localRotation = getRotationFromPercentage(powerTarget);
 	}
 
 	void Update() {
@@ -68,7 +68,10 @@ public class PowerMeterController : MonoBehaviour {
 			}
 		} else if(!hold) {
 			if(needleIncreasing) {
-				currentPowerLevel += 2f * difficulty * Time.deltaTime;
+                //currentPowerLevel += 2f * difficulty * Time.deltaTime;
+                //float deg = currentPowerLevel * Mathf.Rad2Deg;
+
+                currentPowerLevel += 2f * difficulty * Time.deltaTime;
 				needle.localRotation = getRotationFromPercentage(currentPowerLevel);
 				if(currentPowerLevel > .95f)
 					needleIncreasing = false;
@@ -81,22 +84,31 @@ public class PowerMeterController : MonoBehaviour {
 		}
 
 
-		#if UNITY_STANDALONE_WIN
-		if(Input.GetMouseButtonUp(0) && !hold) {
-		#endif
-		#if UNITY_ANDROID
-		if(Input.touchCount > 0 && !hold) {
-		#endif
-			if(idle)
-				idle = false;
-			else {
-				if(Finished == null)
-					Debug.LogError("No event listener for Power Meter was added");
-				else {
-					Finished(powerTarget, currentPowerLevel);
-				}
-			}
-		}
+        #if UNITY_STANDALONE_WIN
+            if (Input.GetMouseButtonUp(0) && !hold) {
+        #endif
+        #if UNITY_ANDROID
+		    if(Input.touchCount > 0 && !hold) {
+        #endif
+        #if UNITY_WEBGL
+            if (Input.GetMouseButtonUp(0) && !hold) {
+        #endif
+        //#if UNITY_EDITOR
+        //    if (Input.GetMouseButtonUp(0) && !hold) {
+        //#endif
+                if (idle)
+                    idle = false;
+                else if (idle == false) {
+                    idle = true;
+                }
+            }
+            else {
+                if (Finished == null)
+                    Debug.LogError("No event listener for Power Meter was added");
+                else {
+                    Finished(powerTarget, currentPowerLevel);
+                }
+            }
 	}
 
 	public void shouldHold(bool hold) {

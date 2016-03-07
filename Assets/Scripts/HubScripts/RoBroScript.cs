@@ -104,6 +104,7 @@ public class RoBroScript : MonoBehaviour {
 
             if (Input.GetKeyUp(KeyCode.A)) {
                 myAnim.SetInteger("jethroState", IDLE);
+                GameManager.instance.StopRobotMoveSound();
             }
         }
 

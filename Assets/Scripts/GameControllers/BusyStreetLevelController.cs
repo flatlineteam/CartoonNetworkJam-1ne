@@ -31,6 +31,9 @@ public class BusyStreetLevelController : MonoBehaviour {
     [SerializeField]
     private float speedAdjustmentBase = 1.0f;
 
+    [SerializeField]
+    private PowerGaugeScript powerGaugeScript = null;
+
     private float speedAdjustment = 1.0f;
     public float SpeedAdjustment {
         get { return speedAdjustment; }
@@ -111,6 +114,26 @@ public class BusyStreetLevelController : MonoBehaviour {
 
     public void SetStarCountText() {
         instance.starCount.text = "x" + GameManager.instance.CurrentGameScore;
+    }
+
+    public bool GetPowerGaugeReadyToFire() {
+        return instance.powerGaugeScript.ReadyToFire;
+    }
+
+    public float GetPowerGaugeTotalPower() {
+        return instance.powerGaugeScript.TotalPower;
+    }
+
+    public bool GetPowerGaugeActive() {
+        return instance.powerGaugeScript.GaugeActive;
+    }
+
+    public void ActivatePowerGauge() {
+        instance.powerGaugeScript.ActivateGauge();
+    }
+
+    public void StopPowerGauge() {
+        instance.powerGaugeScript.StopGauge();
     }
 
     public void GoToHub() {

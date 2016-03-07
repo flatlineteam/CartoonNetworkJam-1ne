@@ -27,7 +27,7 @@ public class GrandmaScript : MonoBehaviour {
             MoveGrandma();
         }
         if (isBeingThrown == true) {
-            this.transform.position += Vector3.right * Time.deltaTime * speed;
+            this.transform.position += Vector3.right * Time.deltaTime * speed * BusyStreetLevelController.instance.GetPowerGaugeTotalPower();
             this.transform.Rotate(Vector3.forward, -25.0f);
         }
 	}
