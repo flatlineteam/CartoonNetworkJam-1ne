@@ -81,7 +81,7 @@ public class BusyStreetLevelController : MonoBehaviour {
         SceneManager.LoadScene("HubScene");
     }
 
-    private void PauseGame() {
+    public void PauseGame() {
         Time.timeScale = 0.0f;
         isPaused = true;
         instance.pausePanel.SetActive(true);
