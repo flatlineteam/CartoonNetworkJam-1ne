@@ -37,6 +37,7 @@ public class RoBroScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (HubControllerScript.instance.IsPaused == true) return;
         if(moveRight == true) {
             MovePlayerRight();
             //GameManager.instance.PlayRobotMoveSound();

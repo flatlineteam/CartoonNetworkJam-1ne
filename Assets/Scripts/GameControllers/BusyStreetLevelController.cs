@@ -114,6 +114,7 @@ public class BusyStreetLevelController : MonoBehaviour {
     }
 
     public void GoToHub() {
+        GameManager.instance.StopRobotMoveSound();
         int previousScore = GamePreferences.GetBusyStreetHighScore();
         if (GameManager.instance.CurrentGameScore >= previousScore) { 
             GameManager.instance.SaveGrandmaTossScore();

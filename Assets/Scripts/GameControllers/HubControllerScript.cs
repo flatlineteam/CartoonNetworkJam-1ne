@@ -25,6 +25,11 @@ public class HubControllerScript : MonoBehaviour {
     [SerializeField]
     private Button right = null, left = null;
 
+    private bool isPaused = false;
+    public bool IsPaused {
+        get { return isPaused; }
+    }
+
     // Use this for initialization
     void Start() {
         MakeInstance();
@@ -122,11 +127,13 @@ public class HubControllerScript : MonoBehaviour {
 
     public void PauseGame() {
         Time.timeScale = 0.0f;
+        isPaused = true;
         pausePanel.SetActive(true);
     }
 
     public void ResumeGame() {
         Time.timeScale = 1.0f;
+        isPaused = false;
         pausePanel.SetActive(false);
     }
 
